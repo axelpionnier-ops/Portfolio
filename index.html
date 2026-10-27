@@ -222,11 +222,15 @@ dialog#viewer img { display: block; max-width: 100%; max-height: 86vh; width: au
 .gfx-head { margin: clamp(3.5rem, 8vw, 6rem) 0 2rem; max-width: 40rem; }
 .gfx-title { font-family: var(--display); font-weight: 400; font-style: italic; font-size: clamp(1.9rem, 4.5vw, 3rem); line-height: 1.05; margin: .3rem 0 1rem; }
 .gfx-intro { font-size: 1.1rem; margin: 0; }
-.gfx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); gap: clamp(.75rem, 1.6vw, 1.1rem); }
+.gfx-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(.75rem, 1.6vw, 1.1rem); }
+@media (min-width: 900px) { .gfx-grid { grid-template-columns: repeat(4, 1fr); } }
 .gfx { margin: 0; display: grid; gap: .45rem; min-width: 0; }
 .gfx .poster { aspect-ratio: 16 / 9; background: #fff; }
 .gfx .poster img { object-fit: contain; }
 .gfx figcaption { font-size: var(--s-xs); font-style: italic; color: var(--sun-gold); }
+.sun-tile.poster { position: relative; padding: 0; overflow: hidden; background: var(--sun-night); }
+.sun-tile.poster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.sun-tile.full { grid-column: 1 / -1; aspect-ratio: 3 / 1; }
 @media (max-width: 759px) { .sun-tile.tall { aspect-ratio: 4 / 5; } .sun-tile.wide { grid-column: span 2; aspect-ratio: 16 / 9; } }
 
 /* Parcours */
@@ -625,15 +629,15 @@ section.block > .wrap { position: relative; z-index: 1; }
         </div>
         <a class="sun-link" href="https://www.instagram.com/axel_pionnier/" target="_blank" rel="noopener">@axel_pionnier ↗</a>
       </div>
-      <p class="sun-intro">En dehors du travail, je photographie ce qui me fait voyager&nbsp;: lumières, paysages, lieux abandonnés. <span class="todo">À valider</span></p>
+      <p class="sun-intro">En dehors du travail, je photographie ce qui me fait voyager&nbsp;: lumières, paysages, lieux abandonnés.</p>
       <div class="sun-grid">
-        <div class="sun-tile tall" role="img" aria-label="Emplacement photo personnelle"><span>Photo 1</span></div><div class="sun-tile" role="img" aria-label="Emplacement photo personnelle"><span>Photo 2</span></div><div class="sun-tile" role="img" aria-label="Emplacement photo personnelle"><span>Photo 3</span></div><div class="sun-tile" role="img" aria-label="Emplacement photo personnelle"><span>Photo 4</span></div><div class="sun-tile wide" role="img" aria-label="Emplacement photo personnelle"><span>Photo 5</span></div>
+        <button type="button" class="sun-tile poster tall"><img src="images/ph-ponton.jpg" alt="Ponton au bord du lac" loading="lazy"></button><button type="button" class="sun-tile poster"><img src="images/ph-escalier.jpg" alt="Escalier, lieu abandonné" loading="lazy"></button><button type="button" class="sun-tile poster"><img src="images/ph-hangar.jpg" alt="Hangar désaffecté" loading="lazy"></button><button type="button" class="sun-tile poster"><img src="images/ph-station.jpg" alt="BMW de nuit en station-service" loading="lazy"></button><button type="button" class="sun-tile poster wide"><img src="images/ph-banc.jpg" alt="Banc face au lac" loading="lazy"></button><button type="button" class="sun-tile poster"><img src="images/ph-drone.jpg" alt="Lac vu du ciel au drone" loading="lazy"></button><button type="button" class="sun-tile poster"><img src="images/ph-couloir.jpg" alt="Couloir, lieu abandonné" loading="lazy"></button><button type="button" class="sun-tile poster"><img src="images/ph-baleine.jpg" alt="Squelette de baleine, galerie de paléontologie" loading="lazy"></button><button type="button" class="sun-tile poster"><img src="images/ph-entrepot.jpg" alt="Silhouette dans un entrepôt" loading="lazy"></button><button type="button" class="sun-tile poster full"><img src="images/ph-lune.jpg" alt="Croissant de lune" loading="lazy"></button>
       </div>
 
       <div class="gfx-head">
         <p class="label">Créations perso</p>
         <h3 class="gfx-title">Le graphisme, à mes heures perdues</h3>
-        <p class="gfx-intro">Photomontages et compositions numériques faits sur mon temps libre&nbsp;: des sneakers qui deviennent des paysages, des statues antiques détournées. Un terrain de jeu sans brief ni contrainte, pour tester des idées.</p>
+        <p class="gfx-intro">Sur mon temps libre, je m'essayais aux packshots créatifs&nbsp;: chaque sneaker devient un paysage, une matière, une histoire. Un terrain de jeu sans brief ni contrainte, pour tester des idées.</p>
       </div>
       <div class="gfx-grid">
         <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-air-jordan-1-blue.jpg" alt="Création graphique personnelle « Air Jordan 1 · Océan »" loading="lazy"></button><figcaption>Air Jordan 1 · Océan</figcaption></figure>
@@ -644,10 +648,6 @@ section.block > .wrap { position: relative; z-index: 1; }
         <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-nike-winter-dior.jpg" alt="Création graphique personnelle « Nike Winter Dior »" loading="lazy"></button><figcaption>Nike Winter Dior</figcaption></figure>
         <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-waterspoon.jpg" alt="Création graphique personnelle « Waterspoon »" loading="lazy"></button><figcaption>Waterspoon</figcaption></figure>
         <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-to-my-coach-2.jpg" alt="Création graphique personnelle « To my coach »" loading="lazy"></button><figcaption>To my coach</figcaption></figure>
-        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-la-s-paration-des-statues.jpg" alt="Création graphique personnelle « La séparation des statues »" loading="lazy"></button><figcaption>La séparation des statues</figcaption></figure>
-        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-statue-marbre-crane-2.jpg" alt="Création graphique personnelle « Statue et crâne »" loading="lazy"></button><figcaption>Statue et crâne</figcaption></figure>
-        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-statue-marbre-tableau-pc.jpg" alt="Création graphique personnelle « Statue sur toile »" loading="lazy"></button><figcaption>Statue sur toile</figcaption></figure>
-        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-le-temps-qui-passe.jpg" alt="Création graphique personnelle « Le temps qui passe »" loading="lazy"></button><figcaption>Le temps qui passe</figcaption></figure>
       </div>
     </div>
   </section>
