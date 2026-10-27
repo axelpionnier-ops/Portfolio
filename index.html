@@ -121,7 +121,7 @@ section.block { padding-block: clamp(4rem, 9vw, 6.5rem); }
 .poster { padding: 0; border: 0; background: var(--ph-a); cursor: zoom-in; aspect-ratio: 3 / 4; overflow: hidden; display: block; width: 100%; }
 .poster img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
 .poster:hover img { transform: scale(1.04); }
-dialog#viewer { border: 0; padding: 0; background: transparent; max-width: min(92vw, 720px); max-height: 92vh; overflow: visible; }
+dialog#viewer { border: 0; padding: 0; background: transparent; max-width: min(92vw, 1280px); max-height: 92vh; overflow: visible; }
 dialog#viewer::backdrop { background: rgba(43, 16, 12, .88); }
 dialog#viewer img { display: block; max-width: 100%; max-height: 86vh; width: auto; margin: 0 auto; }
 .viewer-close { display: block; margin: 0 0 .6rem auto; font-family: var(--display); font-weight: 700; font-size: var(--s-xs); letter-spacing: .18em; text-transform: uppercase; background: var(--paper-on-red); color: var(--red); border: 0; padding: .55rem 1rem; cursor: pointer; }
@@ -219,6 +219,14 @@ dialog#viewer img { display: block; max-width: 100%; max-height: 86vh; width: au
 .sun-tile { aspect-ratio: 4 / 5; background: repeating-linear-gradient(135deg, rgba(255, 244, 230, .10) 0 14px, rgba(255, 244, 230, .18) 14px 15px); border: 1px solid rgba(255, 244, 230, .25); display: grid; place-items: center; font-style: italic; color: rgba(255, 244, 230, .8); }
 .sun-tile.tall { aspect-ratio: auto; min-height: 100%; }
 .sun-tile.wide { aspect-ratio: auto; min-height: 12rem; }
+.gfx-head { margin: clamp(3.5rem, 8vw, 6rem) 0 2rem; max-width: 40rem; }
+.gfx-title { font-family: var(--display); font-weight: 400; font-style: italic; font-size: clamp(1.9rem, 4.5vw, 3rem); line-height: 1.05; margin: .3rem 0 1rem; }
+.gfx-intro { font-size: 1.1rem; margin: 0; }
+.gfx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); gap: clamp(.75rem, 1.6vw, 1.1rem); }
+.gfx { margin: 0; display: grid; gap: .45rem; min-width: 0; }
+.gfx .poster { aspect-ratio: 16 / 9; background: #fff; }
+.gfx .poster img { object-fit: contain; }
+.gfx figcaption { font-size: var(--s-xs); font-style: italic; color: var(--sun-gold); }
 @media (max-width: 759px) { .sun-tile.tall { aspect-ratio: 4 / 5; } .sun-tile.wide { grid-column: span 2; aspect-ratio: 16 / 9; } }
 
 /* Parcours */
@@ -621,6 +629,26 @@ section.block > .wrap { position: relative; z-index: 1; }
       <div class="sun-grid">
         <div class="sun-tile tall" role="img" aria-label="Emplacement photo personnelle"><span>Photo 1</span></div><div class="sun-tile" role="img" aria-label="Emplacement photo personnelle"><span>Photo 2</span></div><div class="sun-tile" role="img" aria-label="Emplacement photo personnelle"><span>Photo 3</span></div><div class="sun-tile" role="img" aria-label="Emplacement photo personnelle"><span>Photo 4</span></div><div class="sun-tile wide" role="img" aria-label="Emplacement photo personnelle"><span>Photo 5</span></div>
       </div>
+
+      <div class="gfx-head">
+        <p class="label">Créations perso</p>
+        <h3 class="gfx-title">Le graphisme, à mes heures perdues</h3>
+        <p class="gfx-intro">Photomontages et compositions numériques faits sur mon temps libre&nbsp;: des sneakers qui deviennent des paysages, des statues antiques détournées. Un terrain de jeu sans brief ni contrainte, pour tester des idées.</p>
+      </div>
+      <div class="gfx-grid">
+        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-air-jordan-1-blue.jpg" alt="Création graphique personnelle « Air Jordan 1 · Océan »" loading="lazy"></button><figcaption>Air Jordan 1 · Océan</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-air-jordan-1-green-og.jpg" alt="Création graphique personnelle « Air Jordan 1 · Forêt »" loading="lazy"></button><figcaption>Air Jordan 1 · Forêt</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-air-jordan-1-menton.jpg" alt="Création graphique personnelle « Air Jordan 1 · Menton »" loading="lazy"></button><figcaption>Air Jordan 1 · Menton</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-air-max-97-lil-nas-x.jpg" alt="Création graphique personnelle « Air Max 97 · Lil Nas X »" loading="lazy"></button><figcaption>Air Max 97 · Lil Nas X</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-cactus-jack.jpg" alt="Création graphique personnelle « Cactus Jack »" loading="lazy"></button><figcaption>Cactus Jack</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-nike-winter-dior.jpg" alt="Création graphique personnelle « Nike Winter Dior »" loading="lazy"></button><figcaption>Nike Winter Dior</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-waterspoon.jpg" alt="Création graphique personnelle « Waterspoon »" loading="lazy"></button><figcaption>Waterspoon</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-to-my-coach-2.jpg" alt="Création graphique personnelle « To my coach »" loading="lazy"></button><figcaption>To my coach</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-la-s-paration-des-statues.jpg" alt="Création graphique personnelle « La séparation des statues »" loading="lazy"></button><figcaption>La séparation des statues</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-statue-marbre-crane-2.jpg" alt="Création graphique personnelle « Statue et crâne »" loading="lazy"></button><figcaption>Statue et crâne</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-statue-marbre-tableau-pc.jpg" alt="Création graphique personnelle « Statue sur toile »" loading="lazy"></button><figcaption>Statue sur toile</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="images/gfx-le-temps-qui-passe.jpg" alt="Création graphique personnelle « Le temps qui passe »" loading="lazy"></button><figcaption>Le temps qui passe</figcaption></figure>
+      </div>
     </div>
   </section>
 
@@ -730,7 +758,7 @@ section.block > .wrap { position: relative; z-index: 1; }
 
   function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0'); }
   if ('IntersectionObserver' in window && !reduce) {
-    var sel = '.sec-head, .work, .poster, .steps li, .stat, .feed, .toplist li, .timeline li, .win-figure, .win-text, .win-photo, .browser, .web-text, .kappy-text, .sun-tile, .sun-intro, .chips span, .cover, .couv-tag, .contact h2, .contact-lines div, .case-visuals .plate';
+    var sel = '.sec-head, .work, .poster, .gfx-head, .steps li, .stat, .feed, .toplist li, .timeline li, .win-figure, .win-text, .win-photo, .browser, .web-text, .kappy-text, .sun-tile, .sun-intro, .chips span, .cover, .couv-tag, .contact h2, .contact-lines div, .case-visuals .plate';
     var vh = window.innerHeight;
     var els = [].slice.call(document.querySelectorAll(sel)).filter(function (el) { return el.getBoundingClientRect().top > vh * .9; });
     els.forEach(function (el) {
