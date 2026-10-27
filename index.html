@@ -180,6 +180,18 @@ dialog#viewer img { display: block; max-width: 100%; max-height: 86vh; width: au
 #couv { border-top: 1px solid var(--line); }
 #couv .label { color: var(--red); }
 .couv-lede { margin: 0; max-width: 28rem; color: var(--ink-soft); font-size: 1.05rem; }
+.ev-lede { max-width: 44rem; font-size: 1.15rem; margin: 0 0 2.5rem; }
+.ev-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1rem; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+.ev-card { border: 1px solid rgba(245, 233, 226, .35); padding: 1.3rem 1.35rem; display: grid; gap: .4rem; align-content: start; text-decoration: none; color: inherit; }
+a.ev-card:hover { background: var(--red-deep); border-color: var(--red-deep); }
+.ev-card .h { font-family: var(--display); font-size: 1.5rem; }
+.ev-card .d { font-size: var(--s-sm); font-style: italic; opacity: .85; }
+.ev-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(.6rem, 1.5vw, 1rem); }
+.ev-ph { margin: 0; min-width: 0; }
+.ev-ph .poster { aspect-ratio: 9 / 16; }
+.ev-ph.wide { grid-column: span 2; }
+.ev-ph.wide .poster { aspect-ratio: 4 / 3; }
+@media (min-width: 900px) { .ev-grid { grid-template-columns: repeat(4, 1fr); } .ev-ph.wide .poster { aspect-ratio: 4 / 3; } }
 .couv-years { display: grid; gap: clamp(2rem, 4vw, 3rem); }
 @media (min-width: 900px) { .couv-years { grid-template-columns: 1fr 1fr; } }
 .couv-tag { display: flex; align-items: baseline; gap: 1rem; margin: 0 0 1rem; padding-bottom: .75rem; border-bottom: 1px solid var(--line); }
@@ -458,6 +470,32 @@ section.block > .wrap { position: relative; z-index: 1; }
             <figure class="cover"><button type="button" class="poster" id="poster-couv-2025-raisin"><img src="images/couv-2025-raisin.jpg" alt="Couverture Champagne Informations juillet 2025, n°194, une grappe dans une main" loading="lazy"></button><figcaption>Juillet 2025, n°194</figcaption></figure>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block red" id="events">
+    <span class="bgword" aria-hidden="true">salons</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label with-logo"><img class="org" src="images/csgv-logo.webp" alt="Logo CSGV" width="44" height="44">Événementiel · CSGV</p>
+          <h2>Salons et assemblées générales</h2>
+        </div>
+      </div>
+      <p class="ev-lede">Chaque année, avec mon service, j'organise les assemblées générales de la coopérative et je réinvente sa présence sur les grands salons de la filière. Au Viteff comme à VitiVini, la CSGV occupe une place historique&nbsp;: à chaque édition, nous repensons le stand pour proposer un espace nouveau et innovant.</p>
+      <div class="ev-cards">
+        <a class="ev-card" href="#etude"><span class="label">Chaque année</span><span class="h">Assemblées générales</span><span class="d">Organisation avec mon service, du concept à l'affiche, de la scénographie au jour J. Voir les affiches ↑</span></a>
+        <div class="ev-card"><span class="label">Salon</span><span class="h">Viteff</span><span class="d">Une présence historique de la CSGV, un stand réorganisé à chaque édition.</span></div>
+        <div class="ev-card"><span class="label">Salon</span><span class="h">VitiVini</span><span class="d">En 2026, le village CSGV&nbsp;: maisons, rue pavée et olivier. Le reel du premier jour a atteint 5&nbsp;884 vues.</span></div>
+      </div>
+      <div class="ev-grid">
+        <figure class="ev-ph wide"><button type="button" class="poster"><img src="images/ev-foule.jpg" alt="Foule sur le stand CSGV « Tout pour la vigne, tout pour le vin »" loading="lazy"></button></figure>
+        <figure class="ev-ph wide"><button type="button" class="poster"><img src="images/ev-stand.jpg" alt="Stand CSGV avec visiteurs et matériel exposé" loading="lazy"></button></figure>
+        <figure class="ev-ph"><button type="button" class="poster"><img src="images/ev-allee.jpg" alt="Allée pavée menant au village CSGV" loading="lazy"></button></figure>
+        <figure class="ev-ph"><button type="button" class="poster"><img src="images/ev-village.jpg" alt="Le village CSGV, maisons et comptoir en pierre" loading="lazy"></button></figure>
+        <figure class="ev-ph"><button type="button" class="poster"><img src="images/ev-machines.jpg" alt="Matériel exposé devant les maisons du village CSGV" loading="lazy"></button></figure>
+        <figure class="ev-ph"><button type="button" class="poster"><img src="images/ev-comptoir.jpg" alt="Comptoir et rue pavée du village CSGV" loading="lazy"></button></figure>
       </div>
     </div>
   </section>
@@ -759,7 +797,7 @@ section.block > .wrap { position: relative; z-index: 1; }
 
   function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0'); }
   if ('IntersectionObserver' in window && !reduce) {
-    var sel = '.sec-head, .work, .poster, .gfx-head, .steps li, .stat, .feed, .toplist li, .timeline li, .win-figure, .win-text, .win-photo, .browser, .web-text, .kappy-text, .sun-tile, .sun-intro, .chips span, .cover, .couv-tag, .contact h2, .contact-lines div, .case-visuals .plate';
+    var sel = '.sec-head, .work, .poster, .gfx-head, .ev-card, .ev-lede, .steps li, .stat, .feed, .toplist li, .timeline li, .win-figure, .win-text, .win-photo, .browser, .web-text, .kappy-text, .sun-tile, .sun-intro, .chips span, .cover, .couv-tag, .contact h2, .contact-lines div, .case-visuals .plate';
     var vh = window.innerHeight;
     var els = [].slice.call(document.querySelectorAll(sel)).filter(function (el) { return el.getBoundingClientRect().top > vh * .9; });
     els.forEach(function (el) {
