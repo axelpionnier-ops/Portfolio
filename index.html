@@ -192,6 +192,16 @@ a.ev-card:hover { background: var(--red-deep); border-color: var(--red-deep); }
 .ev-ph.wide { grid-column: span 2; }
 .ev-ph.wide .poster { aspect-ratio: 4 / 3; }
 @media (min-width: 900px) { .ev-grid { grid-template-columns: repeat(4, 1fr); } .ev-ph.wide .poster { aspect-ratio: 4 / 3; } }
+.ev-film { display: grid; gap: 1.25rem 2rem; align-items: center; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+@media (min-width: 900px) { .ev-film { grid-template-columns: 1.6fr 1fr; } }
+.ev-video { position: relative; aspect-ratio: 16 / 9; background: var(--red-deep); overflow: hidden; }
+.ev-video iframe, .ev-play, .ev-play img { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.ev-play img { object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.ev-play:hover img { transform: scale(1.04); }
+.ev-play-dot { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: 4.5rem; height: 4.5rem; border-radius: 50%; display: grid; place-items: center; background: var(--paper-on-red); color: var(--red); font-size: 1.4rem; padding-left: .2rem; box-shadow: 0 10px 30px -10px rgba(0,0,0,.6); transition: transform .3s; }
+.ev-play:hover .ev-play-dot { transform: scale(1.08); }
+.ev-film-text h3 { font-family: var(--display); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.1; margin: .3rem 0 .7rem; }
+.ev-film-text p:last-child { margin: 0; font-style: italic; opacity: .85; }
 .couv-years { display: grid; gap: clamp(2rem, 4vw, 3rem); }
 @media (min-width: 900px) { .couv-years { grid-template-columns: 1fr 1fr; } }
 .couv-tag { display: flex; align-items: baseline; gap: 1rem; margin: 0 0 1rem; padding-bottom: .75rem; border-bottom: 1px solid var(--line); }
@@ -489,6 +499,19 @@ section.block > .wrap { position: relative; z-index: 1; }
         <div class="ev-card"><span class="label">Salon</span><span class="h">Viteff</span><span class="d">Une présence historique de la CSGV, un stand réorganisé à chaque édition.</span></div>
         <div class="ev-card"><span class="label">Salon</span><span class="h">VitiVini</span><span class="d">En 2026, le village CSGV&nbsp;: maisons, rue pavée et olivier. Le reel du premier jour a atteint 5&nbsp;884 vues.</span></div>
       </div>
+      <div class="ev-film">
+        <div class="ev-video" id="ev-video">
+          <a class="ev-play" href="https://www.youtube.com/watch?v=xqNfcoQdtHE" target="_blank" rel="noopener" data-yt="xqNfcoQdtHE" aria-label="Lire la vidéo de l'inauguration du nouveau pôle CSGV">
+            <img src="https://i.ytimg.com/vi/xqNfcoQdtHE/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
+            <span class="ev-play-dot">▶</span>
+          </a>
+        </div>
+        <div class="ev-film-text">
+          <p class="label">Vidéo</p>
+          <h3>Inauguration d'un nouveau pôle CSGV</h3>
+          <p>L'événement d'inauguration d'un nouveau pôle de la coopérative, en vidéo.</p>
+        </div>
+      </div>
       <div class="ev-grid">
         <figure class="ev-ph wide"><button type="button" class="poster"><img src="images/ev-foule.jpg" alt="Foule sur le stand CSGV « Tout pour la vigne, tout pour le vin »" loading="lazy"></button></figure>
         <figure class="ev-ph wide"><button type="button" class="poster"><img src="images/ev-stand.jpg" alt="Stand CSGV avec visiteurs et matériel exposé" loading="lazy"></button></figure>
@@ -754,6 +777,16 @@ section.block > .wrap { position: relative; z-index: 1; }
       works.forEach(function (w) { w.hidden = !(f === 'all' || w.getAttribute('data-cat') === f); });
     });
   });
+  var play = document.querySelector('.ev-play');
+  if (play) play.addEventListener('click', function (e) {
+    e.preventDefault();
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + play.getAttribute('data-yt') + '?autoplay=1&rel=0';
+    f.title = 'Inauguration d\'un nouveau pôle CSGV';
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    play.replaceWith(f);
+  });
   var viewer = document.getElementById('viewer');
   var vimg = document.getElementById('viewer-img');
   document.querySelectorAll('.poster').forEach(function (p) {
@@ -797,7 +830,7 @@ section.block > .wrap { position: relative; z-index: 1; }
 
   function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0'); }
   if ('IntersectionObserver' in window && !reduce) {
-    var sel = '.sec-head, .work, .poster, .gfx-head, .ev-card, .ev-lede, .steps li, .stat, .feed, .toplist li, .timeline li, .win-figure, .win-text, .win-photo, .browser, .web-text, .kappy-text, .sun-tile, .sun-intro, .chips span, .cover, .couv-tag, .contact h2, .contact-lines div, .case-visuals .plate';
+    var sel = '.sec-head, .work, .poster, .gfx-head, .ev-card, .ev-lede, .ev-film, .steps li, .stat, .feed, .toplist li, .timeline li, .win-figure, .win-text, .win-photo, .browser, .web-text, .kappy-text, .sun-tile, .sun-intro, .chips span, .cover, .couv-tag, .contact h2, .contact-lines div, .case-visuals .plate';
     var vh = window.innerHeight;
     var els = [].slice.call(document.querySelectorAll(sel)).filter(function (el) { return el.getBoundingClientRect().top > vh * .9; });
     els.forEach(function (el) {
