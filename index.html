@@ -46,7 +46,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--red); color: var(--paper-on-red); border-bottom: 1px solid var(--red-deep); }
 header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .85rem; }
 .mark { font-family: var(--body); font-weight: 600; font-size: 1.5rem; line-height: 1; text-decoration: none; letter-spacing: -.02em; }
-nav.menu { display: flex; gap: clamp(.9rem, 1.6vw, 1.5rem); flex-wrap: nowrap; justify-content: flex-end; }
+nav.menu { display: flex; align-items: center; gap: clamp(.9rem, 1.6vw, 1.5rem); flex-wrap: nowrap; justify-content: flex-end; }
 nav.menu a { font-family: var(--display); font-size: var(--s-sm); letter-spacing: .08em; white-space: nowrap; text-transform: uppercase; text-decoration: none; opacity: .85; }
 nav.menu a:hover { opacity: 1; }
 @media (max-width: 1080px) { nav.menu a.minor { display: none; } }
@@ -166,10 +166,10 @@ dialog#viewer img { display: block; max-width: 100%; max-height: 86vh; width: au
 .kappy-text .vid { margin-top: .75rem; }
 
 /* Réseaux */
-.top { margin-top: 2.5rem; }
-.top ol { list-style: none; margin: .9rem 0 0; padding: 0; }
-.top li { display: flex; justify-content: space-between; gap: .25rem 1.5rem; flex-wrap: wrap; padding-block: .75rem; border-bottom: 1px solid rgba(245, 233, 226, .2); }
-.top b { font-family: var(--display); font-weight: 400; font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.toplist { margin-top: 2.5rem; }
+.toplist ol { list-style: none; margin: .9rem 0 0; padding: 0; }
+.toplist li { display: flex; justify-content: space-between; gap: .25rem 1.5rem; flex-wrap: wrap; padding-block: .75rem; border-bottom: 1px solid rgba(245, 233, 226, .2); }
+.toplist b { font-family: var(--display); font-weight: 400; font-size: 1.2rem; font-variant-numeric: tabular-nums; }
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); border-top: 1px solid rgba(245, 233, 226, .45); }
 .stat { padding: 1.4rem 1.25rem 1.4rem 0; border-bottom: 1px solid rgba(245, 233, 226, .2); display: grid; gap: .3rem; }
 .stat .n { font-family: var(--display); font-size: clamp(2.3rem, 5vw, 3.3rem); line-height: 1; font-variant-numeric: lining-nums tabular-nums; }
@@ -221,10 +221,78 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 
 @media (prefers-reduced-motion: no-preference) {
   .hero .logo { animation: settle 1.2s cubic-bezier(.2,.7,.2,1) both; }
-  .hero h1, .hero .intro, .hero .cta-row { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+  .hero .intro, .hero .cta-row { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
   .hero .intro { animation-delay: .1s; } .hero .cta-row { animation-delay: .2s; }
   @keyframes rise { from { transform: translateY(14px); opacity: .001; } to { transform: none; opacity: 1; } }
   @keyframes settle { from { transform: scale(1.03); opacity: .001; } to { transform: none; opacity: 1; } }
+}
+
+/* ===== Mouvement ===== */
+body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 40; opacity: .07; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+header.top { transition: padding .4s, box-shadow .4s, background .4s; }
+header.top .wrap { transition: padding-block .4s; }
+header.top.scrolled { box-shadow: 0 10px 30px -18px rgba(43, 16, 12, .7); background: color-mix(in srgb, var(--red) 92%, transparent); backdrop-filter: blur(10px); }
+header.top.scrolled .wrap { padding-block: .55rem; }
+nav.menu a { position: relative; }
+nav.menu a:not(.pill)::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.35rem; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+nav.menu a:not(.pill):hover::after { transform: scaleX(1); transform-origin: left; }
+nav.menu .pill { border: 1px solid var(--paper-on-red); padding: .45rem 1rem; border-radius: 999px; opacity: 1; transition: background .3s, color .3s; }
+nav.menu .pill:hover { background: var(--paper-on-red); color: var(--red); }
+@media (max-width: 560px) { nav.menu a:not(.keep) { display: none; } }
+
+.hero { position: relative; overflow: hidden; isolation: isolate; }
+.hero-bg { position: absolute; inset: -20%; z-index: -1; filter: blur(60px); opacity: .9; }
+.hero-bg b { position: absolute; border-radius: 50%; }
+.hero-bg b:nth-child(1) { width: 55vw; height: 55vw; left: -5%; top: 0; background: radial-gradient(circle, #a4301f 0%, transparent 65%); }
+.hero-bg b:nth-child(2) { width: 45vw; height: 45vw; right: 0; top: 20%; background: radial-gradient(circle, #3e0b05 0%, transparent 65%); }
+.hero-bg b:nth-child(3) { width: 35vw; height: 35vw; left: 40%; bottom: 0; background: radial-gradient(circle, #c2573c 0%, transparent 65%); opacity: .55; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(rgba(245,233,226,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(245,233,226,.06) 1px, transparent 1px); background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse at 70% 50%, #000 10%, transparent 70%); mask-image: radial-gradient(ellipse at 70% 50%, #000 10%, transparent 70%); }
+.hero h1 .w { display: inline-block; }
+
+.marquee { background: var(--red-deep); color: var(--paper-on-red); overflow: hidden; border-block: 1px solid rgba(245,233,226,.15); }
+.marquee-track { display: flex; width: max-content; align-items: center; gap: 2rem; padding-block: 1rem; font-family: var(--display); font-weight: 300; font-size: clamp(1.4rem, 3vw, 2.2rem); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+.marquee-track i { font-style: normal; color: #e8a27a; font-size: .6em; }
+
+section.block { position: relative; overflow: hidden; }
+section.block > .wrap { position: relative; z-index: 1; }
+.bgword { position: absolute; top: clamp(1rem, 3vw, 2.5rem); right: -2vw; z-index: 0; pointer-events: none; user-select: none;
+  font-family: var(--display); font-weight: 600; font-size: clamp(5rem, 17vw, 15rem); line-height: 1; letter-spacing: -.02em; text-transform: lowercase; white-space: nowrap;
+  color: transparent; -webkit-text-stroke: 1px var(--line); opacity: .9; will-change: transform; }
+.red .bgword { -webkit-text-stroke-color: rgba(245, 233, 226, .16); }
+.sunset .bgword { -webkit-text-stroke-color: rgba(255, 244, 230, .22); }
+
+.btn, .vid, .sun-link, .feed { transition: background .3s, color .3s, border-color .3s, transform .3s cubic-bezier(.2,.7,.2,1); }
+.btn:hover, .vid:hover, .sun-link:hover { transform: translateY(-2px); }
+.feed:hover { transform: translateY(-4px); }
+.poster { transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s; }
+.poster:hover { transform: translateY(-6px) rotate(-1deg); box-shadow: 0 24px 40px -20px rgba(43,16,12,.55); }
+.browser { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.browser:hover { transform: translateY(-6px); }
+.sunset { background-size: 100% 160%; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-bg b:nth-child(1) { animation: drift1 18s ease-in-out infinite alternate; }
+  .hero-bg b:nth-child(2) { animation: drift2 22s ease-in-out infinite alternate; }
+  .hero-bg b:nth-child(3) { animation: drift3 16s ease-in-out infinite alternate; }
+  @keyframes drift1 { to { transform: translate(18vw, 10vh) scale(1.15); } }
+  @keyframes drift2 { to { transform: translate(-20vw, -8vh) scale(.9); } }
+  @keyframes drift3 { to { transform: translate(-12vw, -14vh) scale(1.25); } }
+  .hero .logo { animation: logoIn 1.4s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes logoIn { from { clip-path: inset(0 0 100% 0); transform: translateY(30px); } to { clip-path: inset(0 0 0 0); transform: none; } }
+  .hero h1 .w { animation: wordUp .9s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(.35s + var(--i) * .09s); }
+  @keyframes wordUp { from { transform: translateY(.6em); opacity: .001; } to { transform: none; opacity: 1; } }
+  .marquee-track { animation: marquee 28s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .kappy-phone { animation: bob 6s ease-in-out infinite; }
+  @keyframes bob { 50% { transform: translateY(-14px) rotate(1deg); } }
+  .sunset { animation: dusk 14s ease-in-out infinite alternate; }
+  @keyframes dusk { to { background-position: 0 100%; } }
+  .rv { transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--d, 0) * 70ms); }
+  .rv.pre { opacity: .001; transform: translateY(36px); }
 }
 </style>
 
@@ -234,21 +302,17 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   <div class="wrap">
     <a class="mark" href="#top">axel.</a>
     <nav class="menu" aria-label="Sections">
-      <a href="#site" class="keep">Projet phare</a>
-      <a href="#etude">Affiches</a>
-      <a class="minor" href="#gammvert">Gamm Vert</a>
-      <a class="minor" href="#kappy">Kappy</a>
-      <a class="minor" href="#travaux">Travaux</a>
+      <a href="#site">Projets</a>
       <a href="#reseaux">Réseaux</a>
-      <a href="#perso">Perso</a>
       <a href="#parcours">Parcours</a>
-      <a href="#contact" class="keep">Contact</a>
+      <a href="#contact" class="pill keep">Contact</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
   <div class="hero red">
+    <div class="hero-bg" aria-hidden="true"><b></b><b></b><b></b></div>
     <div class="wrap">
       <img class="logo" src="images/logo.png" alt="axel., logo typographique">
       <div>
@@ -263,7 +327,15 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     </div>
   </div>
 
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Photo</span><i>✦</i><span>Vidéo</span><i>✦</i><span>Affiches</span><i>✦</i><span>Réseaux sociaux</span><i>✦</i><span>Site web</span><i>✦</i><span>Événementiel</span><i>✦</i>
+      <span>Photo</span><i>✦</i><span>Vidéo</span><i>✦</i><span>Affiches</span><i>✦</i><span>Réseaux sociaux</span><i>✦</i><span>Site web</span><i>✦</i><span>Événementiel</span><i>✦</i>
+    </div>
+  </div>
+
   <section class="block" id="site">
+    <span class="bgword" aria-hidden="true">csgv.com</span>
     <div class="wrap">
       <div class="sec-head">
         <div>
@@ -290,7 +362,98 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     </div>
   </section>
 
+  <section class="block" id="etude">
+    <span class="bgword" aria-hidden="true">affiches</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Série d'affiches · CSGV</p>
+          <h2>Les affiches des assemblées générales</h2>
+        </div>
+      </div>
+      <ul class="steps steps-row">
+        <li><b>Brief</b><p>Donner envie aux vignerons adhérents de venir à l'assemblée générale de la coopérative.</p></li>
+        <li><b>Idée</b><p>Détourner des affiches de films cultes avec le vocabulaire champenois&nbsp;: cochelet, muselets, parcelles, Vitis.</p></li>
+        <li><b>Rôle</b><p>Tout, de A à Z&nbsp;: idée, réalisation, montage, direction artistique, impression et mise en place.</p></li>
+        <li><b>Résultats</b><p>Une série de 13 affiches, conçues et installées de bout en bout.</p></li>
+      </ul>
+      <div class="wall">
+        <button type="button" class="poster" id="poster-cochelet"><img src="images/cochelet.jpg" alt="Affiche « Maman, j'ai raté le cochelet », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-muselets"><img src="images/muselets.jpg" alt="Affiche « Le Seigneur des muselets », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-parcelles"><img src="images/parcelles.jpg" alt="Affiche « Chérie, j'ai rétréci les parcelles », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-lahaut"><img src="images/lahaut.jpg" alt="Affiche « Là-haut à Hautvillers », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-vitis"><img src="images/vitis.jpg" alt="Affiche « Bienvenue chez les Vitis », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-captain"><img src="images/captain.jpg" alt="Affiche « Captain Champagne », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-ratatouille"><img src="images/ratatouille.jpg" alt="Affiche « Pâté croûte champenois », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-boursault"><img src="images/boursault.jpg" alt="Affiche « Le Comte de Boursault », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-dents"><img src="images/dents.jpg" alt="Affiche « Les Dents de la vigne », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-camping"><img src="images/camping.jpg" alt="Affiche « En face du camping », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-kaamelott"><img src="images/kaamelott.jpg" alt="Affiche « Kaamelott », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-cepages"><img src="images/cepages.jpg" alt="Affiche « Les 3 Cépages », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-oeil"><img src="images/oeil.jpg" alt="Affiche « La coopérative au sang vert », assemblée générale CSGV" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="gammvert">
+    <span class="bgword" aria-hidden="true">potager</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Opération commerciale · Gamm Vert Épernay</p>
+          <h2>Un jour, un légume</h2>
+        </div>
+      </div>
+      <div class="win">
+        <div class="win-main">
+        <div class="win-figure">
+          <span class="big">3<sup>e</sup></span>
+          <span class="win-cap">place nationale du challenge magasins de la Fête du Potager, sur 191 magasins Gamm Vert participants</span>
+        </div>
+        <div class="win-text">
+          <p>J'anime les opérations commerciales et les réseaux sociaux du Gamm Vert d'Épernay. Pour la Fête du Potager 2026, du 8 au 19 avril, nous avons lancé «&nbsp;Un jour, un légume&nbsp;»&nbsp;: un rendez-vous quotidien en vidéo et un jeu concours pour faire vivre l'opération en magasin et en ligne.</p>
+          <p>Le magasin a terminé sur le podium national, une reconnaissance saluée dans les actualités internes du réseau.</p>
+          <div class="vids">
+            <a class="vid" href="https://www.facebook.com/share/r/1FGhC4cQaB/" target="_blank" rel="noopener"><span class="play-dot">▶</span><span>Voir la vidéo n°1</span></a>
+            <a class="vid" href="https://www.facebook.com/share/r/1CYwxURL15/" target="_blank" rel="noopener"><span class="play-dot">▶</span><span>Voir la vidéo n°2</span></a>
+          </div>
+        </div>
+        </div>
+        <figure class="win-photo">
+          <img src="images/gammvert.jpg" alt="Remise du diplôme Challenge magasin La Fête du Potager 2026 au magasin d'Épernay">
+          <figcaption>Remise du prix, Challenge magasin La Fête du Potager 2026</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="kappy">
+    <span class="bgword" aria-hidden="true">kappy</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Réseaux sociaux · Kappy</p>
+          <h2>L'assistant numérique du vignoble</h2>
+        </div>
+      </div>
+      <div class="kappy">
+        <img class="kappy-phone" src="images/kappy.webp" alt="L'application Kappy affichée sur un smartphone : « Simplifiez votre suivi agronomique »">
+        <div class="kappy-text">
+          <p>Kappy est une application développée par la CSGV et commercialisée en 2026 auprès des vignerons, pour simplifier leur suivi agronomique.</p>
+          <p>Je modère son compte Instagram, <b>@kappy_vigne</b>.</p>
+          <a class="vid" href="https://www.instagram.com/kappy_vigne/" target="_blank" rel="noopener"><span class="play-dot">↗</span><span>Voir @kappy_vigne</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dialog id="viewer" aria-label="Affiche agrandie">
+    <button type="button" id="viewer-close" class="viewer-close">Fermer</button>
+    <img id="viewer-img" alt="">
+  </dialog>
+
   <section class="block" id="travaux">
+    <span class="bgword" aria-hidden="true">travaux</span>
     <div class="wrap">
       <div class="sec-head">
         <div>
@@ -338,94 +501,8 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     </div>
   </section>
 
-  <section class="block" id="etude">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <p class="label">Série d'affiches · CSGV</p>
-          <h2>Les affiches des assemblées générales</h2>
-        </div>
-      </div>
-      <ul class="steps steps-row">
-        <li><b>Brief</b><p>Donner envie aux vignerons adhérents de venir à l'assemblée générale de la coopérative.</p></li>
-        <li><b>Idée</b><p>Détourner des affiches de films cultes avec le vocabulaire champenois&nbsp;: cochelet, muselets, parcelles, Vitis.</p></li>
-        <li><b>Rôle</b><p>Tout, de A à Z&nbsp;: idée, réalisation, montage, direction artistique, impression et mise en place.</p></li>
-        <li><b>Résultats</b><p>Une série de 13 affiches, conçues et installées de bout en bout.</p></li>
-      </ul>
-      <div class="wall">
-        <button type="button" class="poster" id="poster-cochelet"><img src="images/cochelet.jpg" alt="Affiche « Maman, j'ai raté le cochelet », assemblée générale CSGV" loading="lazy"></button>
-        <button type="button" class="poster" id="poster-muselets"><img src="images/muselets.jpg" alt="Affiche « Le Seigneur des muselets », assemblée générale CSGV" loading="lazy"></button>
-        <button type="button" class="poster" id="poster-parcelles"><img src="images/parcelles.jpg" alt="Affiche « Chérie, j'ai rétréci les parcelles », assemblée générale CSGV" loading="lazy"></button>
-        <button type="button" class="poster" id="poster-lahaut"><img src="images/lahaut.jpg" alt="Affiche « Là-haut à Hautvillers », assemblée générale CSGV" loading="lazy"></button>
-        <button type="button" class="poster" id="poster-vitis"><img src="images/vitis.jpg" alt="Affiche « Bienvenue chez les Vitis », assemblée générale CSGV" loading="lazy"></button>
-        <button type="button" class="poster" id="poster-captain"><img src="images/captain.jpg" alt="Affiche « Captain Champagne », assemblée générale CSGV" loading="lazy"></button>
-        <button type="button" class="poster" id="poster-ratatouille"><img src="images/ratatouille.jpg" alt="Affiche « Pâté croûte champenois », assemblée générale CSGV" loading="lazy"></button>
-        <button type="button" class="poster" id="poster-boursault"><img src="images/boursault.jpg" alt="Affiche « Le Comte de Boursault », assemblée générale CSGV" loading="lazy"></button>
-        <button type="button" class="poster" id="poster-dents"><img src="images/dents.jpg" alt="Affiche « Les Dents de la vigne », assemblée générale CSGV" loading="lazy"></button>
-        <button type="button" class="poster" id="poster-camping"><img src="images/camping.jpg" alt="Affiche « En face du camping », assemblée générale CSGV" loading="lazy"></button>
-        <button type="button" class="poster" id="poster-kaamelott"><img src="images/kaamelott.jpg" alt="Affiche « Kaamelott », assemblée générale CSGV" loading="lazy"></button>
-        <button type="button" class="poster" id="poster-cepages"><img src="images/cepages.jpg" alt="Affiche « Les 3 Cépages », assemblée générale CSGV" loading="lazy"></button>
-        <button type="button" class="poster" id="poster-oeil"><img src="images/oeil.jpg" alt="Affiche « La coopérative au sang vert », assemblée générale CSGV" loading="lazy"></button>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="gammvert">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <p class="label">Opération commerciale · Gamm Vert Épernay</p>
-          <h2>Un jour, un légume</h2>
-        </div>
-      </div>
-      <div class="win">
-        <div class="win-main">
-        <div class="win-figure">
-          <span class="big">3<sup>e</sup></span>
-          <span class="win-cap">place nationale du challenge magasins de la Fête du Potager, sur 191 magasins Gamm Vert participants</span>
-        </div>
-        <div class="win-text">
-          <p>J'anime les opérations commerciales et les réseaux sociaux du Gamm Vert d'Épernay. Pour la Fête du Potager 2026, du 8 au 19 avril, nous avons lancé «&nbsp;Un jour, un légume&nbsp;»&nbsp;: un rendez-vous quotidien en vidéo et un jeu concours pour faire vivre l'opération en magasin et en ligne.</p>
-          <p>Le magasin a terminé sur le podium national, une reconnaissance saluée dans les actualités internes du réseau.</p>
-          <div class="vids">
-            <a class="vid" href="https://www.facebook.com/share/r/1FGhC4cQaB/" target="_blank" rel="noopener"><span class="play-dot">▶</span><span>Voir la vidéo n°1</span></a>
-            <a class="vid" href="https://www.facebook.com/share/r/1CYwxURL15/" target="_blank" rel="noopener"><span class="play-dot">▶</span><span>Voir la vidéo n°2</span></a>
-          </div>
-        </div>
-        </div>
-        <figure class="win-photo">
-          <img src="images/gammvert.jpg" alt="Remise du diplôme Challenge magasin La Fête du Potager 2026 au magasin d'Épernay">
-          <figcaption>Remise du prix, Challenge magasin La Fête du Potager 2026</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="kappy">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <p class="label">Réseaux sociaux · Kappy</p>
-          <h2>L'assistant numérique du vignoble</h2>
-        </div>
-      </div>
-      <div class="kappy">
-        <img class="kappy-phone" src="images/kappy.webp" alt="L'application Kappy affichée sur un smartphone : « Simplifiez votre suivi agronomique »">
-        <div class="kappy-text">
-          <p>Kappy est une application développée par la CSGV et commercialisée en 2026 auprès des vignerons, pour simplifier leur suivi agronomique.</p>
-          <p>Je modère son compte Instagram, <b>@kappy_vigne</b>.</p>
-          <a class="vid" href="https://www.instagram.com/kappy_vigne/" target="_blank" rel="noopener"><span class="play-dot">↗</span><span>Voir @kappy_vigne</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <dialog id="viewer" aria-label="Affiche agrandie">
-    <button type="button" id="viewer-close" class="viewer-close">Fermer</button>
-    <img id="viewer-img" alt="">
-  </dialog>
-
   <section class="block red" id="reseaux">
+    <span class="bgword" aria-hidden="true">réseaux</span>
     <div class="wrap">
       <div class="sec-head">
         <div>
@@ -434,12 +511,12 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
         </div>
       </div>
       <div class="stats">
-        <div class="stat"><span class="n">2&nbsp;971</span><span class="l">abonnés LinkedIn sur une page que j'ai créée et développée depuis 2021</span></div>
-        <div class="stat"><span class="n">1&nbsp;000</span><span class="l">abonnés Facebook</span></div>
-        <div class="stat"><span class="n">+599</span><span class="l">nouveaux abonnés Facebook depuis 2024</span></div>
-        <div class="stat"><span class="n">5&nbsp;884</span><span class="l">vues pour mon meilleur reel</span></div>
+        <div class="stat"><span class="n" data-count="2971" data-prefix="">2&nbsp;971</span><span class="l">abonnés LinkedIn sur une page que j'ai créée et développée depuis 2021</span></div>
+        <div class="stat"><span class="n" data-count="1000" data-prefix="">1&nbsp;000</span><span class="l">abonnés Facebook</span></div>
+        <div class="stat"><span class="n" data-count="599" data-prefix="+">+599</span><span class="l">nouveaux abonnés Facebook depuis 2024</span></div>
+        <div class="stat"><span class="n" data-count="5884" data-prefix="">5&nbsp;884</span><span class="l">vues pour mon meilleur reel</span></div>
       </div>
-      <div class="top">
+      <div class="toplist">
         <p class="label">Reels les plus vus · octobre 2026</p>
         <ol>
           <li><span>Viti Vini 2026, jour 1&nbsp;: bienvenue au village CSGV</span><b>5&nbsp;884 vues</b></li>
@@ -457,6 +534,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   </section>
 
   <section class="block sunset" id="perso">
+    <span class="bgword" aria-hidden="true">lumière</span>
     <div class="wrap">
       <div class="sec-head">
         <div>
@@ -473,6 +551,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   </section>
 
   <section class="block" id="parcours">
+    <span class="bgword" aria-hidden="true">parcours</span>
     <div class="wrap">
       <div class="sec-head">
         <div>
@@ -545,6 +624,66 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   });
   document.getElementById('viewer-close').addEventListener('click', function () { viewer.close(); });
   viewer.addEventListener('click', function (e) { if (e.target === viewer) viewer.close(); });
+
+  // Mouvement : menu, filigranes, apparitions, compteurs
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var header = document.querySelector('header.top');
+  var ghosts = [].slice.call(document.querySelectorAll('.bgword'));
+  var logo = document.querySelector('.hero .logo');
+  var ticking = false;
+  function onScroll() {
+    var y = window.scrollY || 0;
+    header.classList.toggle('scrolled', y > 40);
+    if (!reduce) {
+      var vh = window.innerHeight;
+      ghosts.forEach(function (g) {
+        var r = g.parentNode.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) return;
+        var p = (vh - r.top) / (vh + r.height);
+        g.style.transform = 'translateX(' + (-p * 22) + 'vw)';
+      });
+      if (logo && y < vh) logo.style.translate = '0 ' + (y * .18) + 'px';
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  var h1 = document.querySelector('.hero h1');
+  if (h1 && !h1.querySelector('.todo')) {
+    h1.innerHTML = h1.textContent.trim().split(/\s+/).map(function (w, i) { return '<span class="w" style="--i:' + i + '">' + w + '</span>'; }).join(' ');
+  }
+
+  function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0'); }
+  if ('IntersectionObserver' in window && !reduce) {
+    var sel = '.sec-head, .work, .poster, .steps li, .stat, .feed, .toplist li, .timeline li, .win-figure, .win-text, .win-photo, .browser, .web-text, .kappy-text, .sun-tile, .sun-intro, .chips span, .contact h2, .contact-lines div, .case-visuals .plate';
+    var vh = window.innerHeight;
+    var els = [].slice.call(document.querySelectorAll(sel)).filter(function (el) { return el.getBoundingClientRect().top > vh * .9; });
+    els.forEach(function (el) {
+      var sib = [].slice.call(el.parentNode.children).filter(function (c) { return c.matches(sel); });
+      el.style.setProperty('--d', Math.min(sib.indexOf(el), 8));
+      el.classList.add('rv', 'pre');
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.remove('pre');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target, end = +el.dataset.count, pre = el.dataset.prefix || '', t0 = null;
+        function step(ts) { if (!t0) t0 = ts; var k = Math.min((ts - t0) / 1600, 1), v = Math.round(end * (1 - Math.pow(1 - k, 3))); el.textContent = pre + fmt(v); if (k < 1) requestAnimationFrame(step); }
+        requestAnimationFrame(step);
+        cio.unobserve(el);
+      });
+    }, { threshold: .6 });
+    document.querySelectorAll('[data-count]').forEach(function (el) { cio.observe(el); });
+  }
 })();
 </script>
 </body>
