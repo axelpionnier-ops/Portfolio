@@ -165,6 +165,11 @@ dialog#viewer img { display: block; max-width: 100%; max-height: 86vh; width: au
 .kappy-text p { margin: 0 0 1rem; max-width: 34rem; font-size: 1.1rem; }
 .kappy-text .vid { margin-top: .75rem; }
 
+.with-logo { display: flex; align-items: center; gap: .75rem; }
+.org { width: 44px; height: 44px; flex: none; }
+.org.sm { width: 28px; height: 28px; }
+@media (prefers-reduced-motion: no-preference) { .rv:not(.pre) .org:not(.sm) { animation: spinIn 1s cubic-bezier(.2,.7,.2,1) both; } @keyframes spinIn { from { transform: rotate(-90deg) scale(.6); } } }
+
 /* Réseaux */
 .toplist { margin-top: 2.5rem; }
 .toplist ol { list-style: none; margin: .9rem 0 0; padding: 0; }
@@ -339,7 +344,7 @@ section.block > .wrap { position: relative; z-index: 1; }
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <p class="label">Projet phare · CSGV</p>
+          <p class="label with-logo"><img class="org" src="images/csgv-logo.webp" alt="Logo CSGV" width="44" height="44">Projet phare · CSGV</p>
           <h2>csgv.com, le site de la coopérative</h2>
         </div>
       </div>
@@ -367,7 +372,7 @@ section.block > .wrap { position: relative; z-index: 1; }
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <p class="label">Série d'affiches · CSGV</p>
+          <p class="label with-logo"><img class="org" src="images/csgv-logo.webp" alt="Logo CSGV" width="44" height="44">Série d'affiches · CSGV</p>
           <h2>Les affiches des assemblées générales</h2>
         </div>
       </div>
@@ -562,7 +567,7 @@ section.block > .wrap { position: relative; z-index: 1; }
       <div class="cv">
         <div>
           <ol class="timeline">
-            <li><span class="y">2021 — auj.</span><div><h3>Chargé de communication · CSGV</h3><p>Coopérative du Syndicat Général des Vignerons, Épernay · CDI. Vidéos promotionnelles et institutionnelles de la prise de vue au montage, affiches, site et intranet, communication print et TV sur 18 magasins, salons et événements. Animation des opérations commerciales et des réseaux du Gamm Vert d'Épernay.</p></div></li>
+            <li><span class="y">2021 — auj.</span><div><h3 class="with-logo"><img class="org sm" src="images/csgv-logo.webp" alt="" width="28" height="28">Chargé de communication · CSGV</h3><p>Coopérative du Syndicat Général des Vignerons, Épernay · CDI. Vidéos promotionnelles et institutionnelles de la prise de vue au montage, affiches, site et intranet, communication print et TV sur 18 magasins, salons et événements. Animation des opérations commerciales et des réseaux du Gamm Vert d'Épernay.</p></div></li>
             <li><span class="y">2019 — 2021</span><div><h3>Technicien réparateur · WeFix</h3><p>Saint-Quentin · CDI. Réparation électronique, management d'une petite équipe en atelier, conseil client.</p></div></li>
             <li><span class="y">2017 — 2018</span><div><h3>Community manager · AB Expérience</h3><p>Amiens · alternance. Articles de blog, visuels digitaux, animation des réseaux sociaux.</p></div></li>
             <li><span class="y">2015 — 2017</span><div><h3>Agent commercial · Régie Radio Régions</h3><p>Lille · CDD. Prospection B2B et vente d'espace pour Virgin Radio.</p></div></li>
