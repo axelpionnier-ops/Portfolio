@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Axel Pionnier · Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Axel Pionnier, chargé de communication en Champagne : photo, vidéo, graphisme, réseaux sociaux et événementiel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap">
+<style>
+/* Layout : grandes bandes pleine largeur, le rouge en dominante (ouverture, réseaux, contact) alterné avec un papier clair pour les travaux. Un seul look clair, assumé. */
+:root {
+  --red: #711B11;          /* dominante, choisie par Axel */
+  --red-deep: #561409;     /* survols, filets sur rouge */
+  --paper: #f5efea;        /* fond clair */
+  --paper-on-red: #f5e9e2; /* texte sur rouge */
+  --ink: #2b100c;          /* texte sur papier */
+  --ink-soft: #6f4c46;     /* texte secondaire */
+  --line: #ddcbc4;         /* filets sur papier */
+  --ph-a: #e8dcd6; --ph-b: #dccdc6; /* emplacements visuels */
+  --display: "Josefin Sans", "Futura", "Century Gothic", "Avenir Next", sans-serif;
+  --body: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+  --s-xs: .78rem; --s-sm: .92rem; --s-md: 1.0625rem; --s-lg: 1.5rem; --s-xl: clamp(2.1rem, 4.6vw, 3.4rem); --s-xxl: clamp(2.8rem, 7vw, 5.5rem);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: var(--s-md); line-height: 1.6; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+@media (min-width: 720px) { .wrap { padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px)); } }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 300; text-wrap: balance; margin: 0; }
+.label { font-family: var(--display); font-weight: 700; font-size: var(--s-xs); letter-spacing: .2em; text-transform: uppercase; }
+.todo { font-family: var(--body); font-style: italic; font-size: .72rem; border: 1px dashed currentColor; padding: .05em .45em; border-radius: 2px; white-space: nowrap; vertical-align: middle; opacity: .8; font-weight: 400; letter-spacing: 0; text-transform: none; }
+
+/* Bandes rouges */
+.red { background: var(--red); color: var(--paper-on-red); }
+.red .ph-a { --ph-a: #7d2519; --ph-b: #8a2f22; }
+
+/* En-tête */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--red); }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--red); color: var(--paper-on-red); border-bottom: 1px solid var(--red-deep); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .85rem; }
+.mark { font-family: var(--body); font-weight: 600; font-size: 1.5rem; line-height: 1; text-decoration: none; letter-spacing: -.02em; }
+nav.menu { display: flex; align-items: center; gap: clamp(.9rem, 1.6vw, 1.5rem); flex-wrap: nowrap; justify-content: flex-end; }
+nav.menu a { font-family: var(--display); font-size: var(--s-sm); letter-spacing: .08em; white-space: nowrap; text-transform: uppercase; text-decoration: none; opacity: .85; }
+nav.menu a:hover { opacity: 1; }
+@media (max-width: 1080px) { nav.menu a.minor { display: none; } }
+@media (max-width: 560px) { nav.menu a:not(.keep) { display: none; } }
+
+/* Ouverture */
+.hero .wrap { display: grid; gap: clamp(2rem, 5vw, 4.5rem); padding-block: clamp(2.5rem, 6vw, 5rem); align-items: center; }
+@media (min-width: 820px) { .hero .wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); } }
+.hero .logo { width: 100%; max-width: 520px; height: auto; display: block; justify-self: center; }
+.hero h1 { font-size: var(--s-xxl); line-height: 1; letter-spacing: .01em; margin-top: 1rem; }
+.hero .intro { font-size: 1.2rem; line-height: 1.55; margin: 1.5rem 0 0; max-width: 32rem; font-weight: 350; }
+.cta-row { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 2.25rem; }
+.btn { display: inline-flex; align-items: center; padding: .85rem 1.5rem; font-family: var(--display); font-weight: 700; font-size: var(--s-xs); letter-spacing: .18em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--paper-on-red); background: var(--paper-on-red); color: var(--red); }
+.btn.ghost { background: transparent; color: var(--paper-on-red); }
+.btn:hover { background: var(--red-deep); color: var(--paper-on-red); border-color: var(--red-deep); }
+
+/* Emplacements visuels */
+.plate { position: relative; max-width: 100%; background: repeating-linear-gradient(135deg, var(--ph-a) 0 14px, var(--ph-b) 14px 15px); overflow: hidden; }
+.plate .what { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 1rem; font-style: italic; color: var(--ink-soft); }
+.plate img, .plate video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.play { position: absolute; top: .8rem; left: .8rem; font-family: var(--display); font-weight: 700; font-size: .7rem; letter-spacing: .15em; padding: .3rem .6rem; background: var(--red); color: var(--paper-on-red); }
+
+/* Sections */
+section.block { padding-block: clamp(4rem, 9vw, 6.5rem); }
+.sec-head { display: flex; justify-content: space-between; align-items: end; gap: 1rem 2rem; flex-wrap: wrap; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.sec-head h2 { font-size: var(--s-xl); line-height: 1.05; margin-top: .5rem; }
+#travaux .label { color: var(--red); }
+
+/* Travaux */
+.filters { display: flex; gap: .5rem; flex-wrap: wrap; }
+.filters button { font-family: var(--display); font-size: var(--s-sm); letter-spacing: .08em; padding: .45rem 1.05rem; border: 1px solid var(--line); background: transparent; color: var(--ink-soft); cursor: pointer; border-radius: 999px; }
+.filters button[aria-pressed="true"] { border-color: var(--red); background: var(--red); color: var(--paper-on-red); }
+.works { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(.75rem, 2vw, 1.5rem); }
+.work { grid-column: span 12; margin: 0; display: grid; gap: .55rem; min-width: 0; }
+.work figcaption { display: flex; justify-content: space-between; gap: .25rem 1rem; align-items: baseline; flex-wrap: wrap; }
+.work .t { font-family: var(--display); font-size: 1.2rem; }
+.work .k { font-size: var(--s-xs); font-style: italic; color: var(--ink-soft); }
+.work .plate { aspect-ratio: 4 / 5; }
+.work.wide .plate { aspect-ratio: 16 / 9; }
+.work.ytw .plate { aspect-ratio: 16 / 9; background: var(--red); }
+.plate.yt iframe, .yt-play, .yt-play img { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.yt-play img { object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.yt-play:hover img { transform: scale(1.04); }
+.yt-dot { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: 3.6rem; height: 3.6rem; border-radius: 50%; display: grid; place-items: center; background: var(--paper-on-red); color: var(--red); font-size: 1.1rem; padding-left: .15rem; box-shadow: 0 10px 30px -10px rgba(0,0,0,.6); transition: transform .3s; }
+.yt-play:hover .yt-dot { transform: scale(1.08); }
+a.yt-chan { color: var(--red); font-style: normal; font-weight: 600; text-decoration: none; }
+a.yt-chan:hover { text-decoration: underline; }
+.work .pagecard { aspect-ratio: 4 / 5; background: var(--red); color: #f5e9e2; display: flex; flex-direction: column; padding: clamp(1.1rem, 2.5vw, 1.6rem); text-decoration: none; transition: background .3s, transform .4s cubic-bezier(.2,.7,.2,1); }
+@media (max-width: 759px) { .work .pagecard { aspect-ratio: auto; min-height: 15rem; } }
+.work .pagecard:hover { background: var(--red-deep); transform: translateY(-4px); }
+.pc-net { font-family: var(--display); text-transform: uppercase; letter-spacing: .18em; font-size: var(--s-xs); opacity: .8; }
+.pc-name { font-family: var(--display); font-size: clamp(1.7rem, 3.4vw, 2.5rem); line-height: 1.05; margin-top: .6rem; }
+.pc-stat { margin-top: auto; font-style: italic; font-size: var(--s-sm); opacity: .9; display: grid; gap: .2rem; }
+.pc-stat b { font-family: var(--display); font-style: normal; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1; font-weight: 400; }
+.pc-go { margin-top: 1rem; padding-top: .8rem; border-top: 1px solid rgba(245,233,226,.35); font-size: var(--s-sm); }
+@media (min-width: 720px) {
+  .work { grid-column: span 6; }
+  .work.wide { grid-column: span 12; }
+  .work.third { grid-column: span 4; }
+}
+
+/* Étude de cas */
+#etude { border-top: 1px solid var(--line); }
+#etude .label { color: var(--red); }
+.case { display: grid; gap: clamp(2rem, 5vw, 4rem); }
+@media (min-width: 900px) { .case { grid-template-columns: 1fr 1.2fr; } }
+.steps { display: grid; gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.steps li { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; border-top: 1px solid var(--line); padding-top: .9rem; }
+.steps b { font-family: var(--display); font-weight: 700; font-size: var(--s-xs); text-transform: uppercase; letter-spacing: .16em; color: var(--red); padding-top: .25em; }
+.steps p { margin: 0; color: var(--ink-soft); }
+.case-visuals { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.case-visuals .plate { aspect-ratio: 4 / 5; }
+.case-visuals .plate:first-child { grid-column: span 2; aspect-ratio: 3 / 2; }
+
+.steps-row { margin-bottom: clamp(2rem, 4vw, 3rem); }
+@media (min-width: 900px) { .steps-row { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } .steps-row li { grid-template-columns: 1fr; gap: .4rem; align-content: start; } }
+.wall { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(.6rem, 1.5vw, 1rem); }
+.wall .poster:first-child { grid-column: span 2; grid-row: span 2; }
+@media (min-width: 600px) { .wall { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1000px) { .wall { grid-template-columns: repeat(8, 1fr); } }
+.poster { padding: 0; border: 0; background: var(--ph-a); cursor: zoom-in; aspect-ratio: 3 / 4; overflow: hidden; display: block; width: 100%; }
+.poster img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.poster:hover img { transform: scale(1.04); }
+dialog#viewer { border: 0; padding: 0; background: transparent; max-width: min(92vw, 1280px); max-height: 92vh; overflow: visible; }
+dialog#viewer::backdrop { background: rgba(43, 16, 12, .88); }
+dialog#viewer img { display: block; max-width: 100%; max-height: 86vh; width: auto; margin: 0 auto; }
+.viewer-close { display: block; margin: 0 0 .6rem auto; font-family: var(--display); font-weight: 700; font-size: var(--s-xs); letter-spacing: .18em; text-transform: uppercase; background: var(--paper-on-red); color: var(--red); border: 0; padding: .55rem 1rem; cursor: pointer; }
+.sub { font-size: 1.25rem; margin: 2.5rem 0 .25rem; color: var(--red); }
+
+#gammvert { border-top: 1px solid var(--line); }
+#gammvert .label { color: var(--red); }
+.win { display: grid; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+@media (min-width: 860px) { .win { grid-template-columns: 1.3fr 1fr; } }
+.win-main { display: grid; gap: 2rem; min-width: 0; }
+.win-photo { margin: 0; display: grid; gap: .6rem; }
+.win-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 40%; display: block; }
+.win-photo figcaption { font-size: var(--s-xs); font-style: italic; color: var(--ink-soft); }
+.win-figure { display: grid; gap: .5rem; border-left: 3px solid var(--red); padding-left: clamp(1rem, 3vw, 2rem); }
+.big { font-family: var(--display); font-weight: 300; font-size: clamp(6rem, 16vw, 10rem); line-height: .85; color: var(--red); }
+.big sup { font-size: .35em; vertical-align: top; margin-left: .05em; }
+.win-cap { max-width: 22rem; color: var(--ink-soft); }
+.win-text p { margin: 0 0 1rem; max-width: 36rem; font-size: 1.1rem; }
+
+.vids { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: .5rem; }
+.vid { display: inline-flex; align-items: center; gap: .7rem; padding: .7rem 1.1rem .7rem .7rem; border: 1px solid var(--red); color: var(--red); text-decoration: none; font-family: var(--display); font-weight: 600; font-size: var(--s-sm); letter-spacing: .04em; }
+.vid:hover { background: var(--red); color: var(--paper-on-red); }
+.play-dot { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--red); color: var(--paper-on-red); font-size: .7rem; }
+.vid:hover .play-dot { background: var(--paper-on-red); color: var(--red); }
+
+#site { background: var(--paper); }
+#site h2 { font-size: var(--s-xxl); line-height: 1; }
+#site .label { color: var(--red); }
+.web { display: grid; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+@media (min-width: 900px) { .web { grid-template-columns: 1.6fr 1fr; } }
+.browser { border: 1px solid var(--line); background: var(--paper); min-width: 0; box-shadow: 0 18px 40px -24px rgba(43, 16, 12, .35); }
+.browser-bar { display: flex; align-items: center; gap: .4rem; padding: .6rem .8rem; border-bottom: 1px solid var(--line); }
+.browser-bar i { width: .6rem; height: .6rem; border-radius: 50%; background: var(--line); }
+.browser-bar span { margin-left: .8rem; font-size: var(--s-xs); color: var(--ink-soft); }
+.browser .shot { display: block; width: 100%; height: auto; }
+.web-text p { margin: 0 0 1.5rem; font-size: 1.1rem; max-width: 34rem; }
+.web-list { list-style: none; margin: 0 0 2rem; padding: 0; }
+.web-list li { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding-block: .8rem; border-top: 1px solid var(--line); }
+.web-list b { font-family: var(--display); font-weight: 700; font-size: var(--s-xs); letter-spacing: .16em; text-transform: uppercase; color: var(--red); padding-top: .25em; }
+.web-list span { color: var(--ink-soft); }
+@media (max-width: 480px) { .web-list li { grid-template-columns: 1fr; gap: .2rem; } }
+
+#kappy { border-top: 1px solid var(--line); }
+#kappy .label { color: var(--red); }
+.kappy { display: grid; gap: clamp(1.5rem, 5vw, 4.5rem); align-items: center; }
+@media (min-width: 800px) { .kappy { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); } }
+.kappy-phone { display: block; width: 100%; max-width: 380px; height: auto; justify-self: center; -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 98%); mask-image: linear-gradient(to bottom, #000 72%, transparent 98%); }
+.kappy-text p { margin: 0 0 1rem; max-width: 34rem; font-size: 1.1rem; }
+.kappy-text .vid { margin-top: .75rem; }
+
+.with-logo { display: flex; align-items: center; gap: .75rem; }
+.org { width: 44px; height: 44px; flex: none; }
+.org.sm { width: 28px; height: 28px; }
+@media (prefers-reduced-motion: no-preference) { .rv:not(.pre) .org:not(.sm) { animation: spinIn 1s cubic-bezier(.2,.7,.2,1) both; } @keyframes spinIn { from { transform: rotate(-90deg) scale(.6); } } }
+
+#couv { border-top: 1px solid var(--line); }
+#couv .label { color: var(--red); }
+.couv-lede { margin: 0; max-width: 28rem; color: var(--ink-soft); font-size: 1.05rem; }
+.ev-lede { max-width: 44rem; font-size: 1.15rem; margin: 0 0 2.5rem; }
+.ev-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1rem; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+.ev-card { border: 1px solid rgba(245, 233, 226, .35); padding: 1.3rem 1.35rem; display: grid; gap: .4rem; align-content: start; text-decoration: none; color: inherit; }
+a.ev-card:hover { background: var(--red-deep); border-color: var(--red-deep); }
+.ev-card .h { font-family: var(--display); font-size: 1.5rem; }
+.ev-card .d { font-size: var(--s-sm); font-style: italic; opacity: .85; }
+.ev-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(.6rem, 1.5vw, 1rem); }
+.ev-ph { margin: 0; min-width: 0; }
+.ev-ph .poster { aspect-ratio: 9 / 16; }
+.ev-ph.wide { grid-column: span 2; }
+.ev-ph.wide .poster { aspect-ratio: 4 / 3; }
+@media (min-width: 900px) { .ev-grid { grid-template-columns: repeat(4, 1fr); } .ev-ph.wide .poster { aspect-ratio: 4 / 3; } }
+.ev-film { display: grid; gap: 1.25rem 2rem; align-items: center; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+@media (min-width: 900px) { .ev-film { grid-template-columns: 1.6fr 1fr; } }
+.ev-video { position: relative; aspect-ratio: 16 / 9; background: var(--red-deep); overflow: hidden; }
+.ev-video iframe, .ev-play, .ev-play img { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.ev-play img { object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.ev-play:hover img { transform: scale(1.04); }
+.ev-play-dot { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: 4.5rem; height: 4.5rem; border-radius: 50%; display: grid; place-items: center; background: var(--paper-on-red); color: var(--red); font-size: 1.4rem; padding-left: .2rem; box-shadow: 0 10px 30px -10px rgba(0,0,0,.6); transition: transform .3s; }
+.ev-play:hover .ev-play-dot { transform: scale(1.08); }
+.ev-film-text h3 { font-family: var(--display); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.1; margin: .3rem 0 .7rem; }
+.ev-film-text p:last-child { margin: 0; font-style: italic; opacity: .85; }
+.couv-years { display: grid; gap: clamp(2rem, 4vw, 3rem); }
+@media (min-width: 900px) { .couv-years { grid-template-columns: 1fr 1fr; } }
+.couv-tag { display: flex; align-items: baseline; gap: 1rem; margin: 0 0 1rem; padding-bottom: .75rem; border-bottom: 1px solid var(--line); }
+.couv-tag b { font-family: var(--display); font-weight: 300; font-size: 2.4rem; line-height: 1; color: var(--red); font-variant-numeric: lining-nums; }
+.couv-tag span { font-style: italic; color: var(--ink-soft); }
+.couv-pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.6rem, 1.5vw, 1rem); }
+.cover { margin: 0; display: grid; gap: .5rem; min-width: 0; }
+.cover .poster { aspect-ratio: 720 / 1018; }
+.cover figcaption { font-size: var(--s-xs); font-style: italic; color: var(--ink-soft); }
+
+/* Réseaux */
+.toplist { margin-top: 2.5rem; }
+.toplist ol { list-style: none; margin: .9rem 0 0; padding: 0; }
+.toplist li { display: flex; justify-content: space-between; gap: .25rem 1.5rem; flex-wrap: wrap; padding-block: .75rem; border-bottom: 1px solid rgba(245, 233, 226, .2); }
+.toplist b { font-family: var(--display); font-weight: 400; font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); border-top: 1px solid rgba(245, 233, 226, .45); }
+.stat { padding: 1.4rem 1.25rem 1.4rem 0; border-bottom: 1px solid rgba(245, 233, 226, .2); display: grid; gap: .3rem; }
+.stat .n { font-family: var(--display); font-size: clamp(2.3rem, 5vw, 3.3rem); line-height: 1; font-variant-numeric: lining-nums tabular-nums; }
+.stat .l { font-size: var(--s-sm); opacity: .85; }
+.feeds { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 1rem; margin-top: 2.5rem; }
+.feed { border: 1px solid rgba(245, 233, 226, .35); padding: 1.2rem 1.25rem; display: grid; gap: .35rem; text-decoration: none; }
+.feed:hover { background: var(--red-deep); border-color: var(--red-deep); }
+.feed .h { font-family: var(--display); font-size: 1.3rem; }
+.feed .d { font-size: var(--s-sm); font-style: italic; opacity: .8; }
+
+/* Perso : univers coucher de soleil, distinct du rouge */
+.sunset { --sun-night: #24103a; --sun-violet: #5a2a83; --sun-rose: #c2507a; --sun-orange: #f08a4b; --sun-gold: #ffd36b; --sun-text: #fff4e6;
+  background: linear-gradient(170deg, var(--sun-night) 0%, var(--sun-violet) 38%, var(--sun-rose) 68%, var(--sun-orange) 88%, var(--sun-gold) 100%); color: var(--sun-text); }
+.sunset .label { color: var(--sun-gold); }
+.sunset h2 { font-style: italic; }
+.sun-link { font-family: var(--display); font-weight: 600; letter-spacing: .06em; text-decoration: none; padding: .7rem 1.2rem; border: 1px solid var(--sun-gold); color: var(--sun-gold); }
+.sun-link:hover { background: var(--sun-gold); color: var(--sun-night); }
+.sun-intro { max-width: 36rem; font-size: 1.15rem; margin: 0 0 2.5rem; }
+.sunset .todo { color: var(--sun-gold); }
+.sun-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(.6rem, 1.5vw, 1rem); }
+@media (min-width: 760px) { .sun-grid { grid-template-columns: repeat(4, 1fr); } .sun-tile.tall { grid-row: span 2; } .sun-tile.wide { grid-column: span 3; } }
+.sun-tile { aspect-ratio: 4 / 5; background: repeating-linear-gradient(135deg, rgba(255, 244, 230, .10) 0 14px, rgba(255, 244, 230, .18) 14px 15px); border: 1px solid rgba(255, 244, 230, .25); display: grid; place-items: center; font-style: italic; color: rgba(255, 244, 230, .8); }
+.sun-tile.tall { aspect-ratio: auto; min-height: 100%; }
+.sun-tile.wide { aspect-ratio: auto; min-height: 12rem; }
+.gfx-head { margin: clamp(3.5rem, 8vw, 6rem) 0 2rem; max-width: 40rem; }
+.gfx-title { font-family: var(--display); font-weight: 400; font-style: italic; font-size: clamp(1.9rem, 4.5vw, 3rem); line-height: 1.05; margin: .3rem 0 1rem; }
+.gfx-intro { font-size: 1.1rem; margin: 0; }
+.gfx-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(.75rem, 1.6vw, 1.1rem); }
+@media (min-width: 900px) { .gfx-grid { grid-template-columns: repeat(4, 1fr); } }
+.gfx { margin: 0; display: grid; gap: .45rem; min-width: 0; }
+.gfx .poster { aspect-ratio: 16 / 9; background: #fff; }
+.gfx .poster img { object-fit: contain; }
+.gfx figcaption { font-size: var(--s-xs); font-style: italic; color: var(--sun-gold); }
+.sun-tile.poster { position: relative; padding: 0; overflow: hidden; background: var(--sun-night); }
+.sun-tile.poster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.sun-tile.half { grid-column: span 2; aspect-ratio: auto; }
+.sun-tile.full { grid-column: 1 / -1; aspect-ratio: 3 / 1; }
+@media (max-width: 759px) { .sun-tile.half { aspect-ratio: 16 / 9; } .sun-tile.tall { aspect-ratio: 4 / 5; } .sun-tile.wide { grid-column: span 2; aspect-ratio: 16 / 9; } }
+
+/* Parcours */
+#parcours .label { color: var(--red); }
+.cv { display: grid; gap: clamp(2rem, 5vw, 4rem); }
+@media (min-width: 900px) { .cv { grid-template-columns: 1.4fr 1fr; } }
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding-block: 1rem; border-top: 1px solid var(--line); }
+.timeline .y { font-size: var(--s-sm); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.timeline h3 { font-size: 1.25rem; }
+.timeline p { margin: .2rem 0 0; color: var(--ink-soft); font-size: var(--s-sm); }
+@media (max-width: 480px) { .timeline li, .steps li { grid-template-columns: 1fr; gap: .25rem; } }
+.kit h3 { font-size: 1.25rem; margin-bottom: .75rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+.chips span { font-size: var(--s-sm); border: 1px solid var(--line); padding: .25rem .75rem; }
+
+/* Contact */
+.contact { display: grid; gap: 2rem; }
+.contact h2 { font-size: var(--s-xxl); line-height: 1; }
+.contact-lines { display: grid; gap: .75rem; font-size: 1.15rem; }
+.contact-lines div { display: flex; flex-wrap: wrap; gap: .25rem 1rem; align-items: baseline; }
+.contact-lines .label { width: 8rem; opacity: .8; }
+@media (max-width: 559px) { .contact-lines div { flex-direction: column; } .contact-lines .label { width: auto; } }
+footer { padding-block: 1.5rem; font-size: var(--s-xs); border-top: 1px solid var(--red-deep); }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero .logo { animation: settle 1.2s cubic-bezier(.2,.7,.2,1) both; }
+  .hero .intro, .hero .cta-row { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+  .hero .intro { animation-delay: .1s; } .hero .cta-row { animation-delay: .2s; }
+  @keyframes rise { from { transform: translateY(14px); opacity: .001; } to { transform: none; opacity: 1; } }
+  @keyframes settle { from { transform: scale(1.03); opacity: .001; } to { transform: none; opacity: 1; } }
+}
+
+/* ===== Mouvement ===== */
+body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 40; opacity: .07; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+header.top { transition: padding .4s, box-shadow .4s, background .4s; }
+header.top .wrap { transition: padding-block .4s; }
+header.top.scrolled { box-shadow: 0 10px 30px -18px rgba(43, 16, 12, .7); background: color-mix(in srgb, var(--red) 92%, transparent); backdrop-filter: blur(10px); }
+header.top.scrolled .wrap { padding-block: .55rem; }
+nav.menu a { position: relative; }
+nav.menu a:not(.pill)::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.35rem; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+nav.menu a:not(.pill):hover::after { transform: scaleX(1); transform-origin: left; }
+nav.menu .pill { border: 1px solid var(--paper-on-red); padding: .45rem 1rem; border-radius: 999px; opacity: 1; transition: background .3s, color .3s; }
+nav.menu .pill:hover { background: var(--paper-on-red); color: var(--red); }
+@media (max-width: 560px) { nav.menu a:not(.keep) { display: none; } }
+
+.hero { position: relative; overflow: hidden; isolation: isolate; }
+.hero-bg { position: absolute; inset: -20%; z-index: -1; filter: blur(60px); opacity: .9; }
+.hero-bg b { position: absolute; border-radius: 50%; }
+.hero-bg b:nth-child(1) { width: 55vw; height: 55vw; left: -5%; top: 0; background: radial-gradient(circle, #a4301f 0%, transparent 65%); }
+.hero-bg b:nth-child(2) { width: 45vw; height: 45vw; right: 0; top: 20%; background: radial-gradient(circle, #3e0b05 0%, transparent 65%); }
+.hero-bg b:nth-child(3) { width: 35vw; height: 35vw; left: 40%; bottom: 0; background: radial-gradient(circle, #c2573c 0%, transparent 65%); opacity: .55; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(rgba(245,233,226,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(245,233,226,.06) 1px, transparent 1px); background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse at 70% 50%, #000 10%, transparent 70%); mask-image: radial-gradient(ellipse at 70% 50%, #000 10%, transparent 70%); }
+.hero h1 .w { display: inline-block; }
+
+.marquee { background: var(--red-deep); color: var(--paper-on-red); overflow: hidden; border-block: 1px solid rgba(245,233,226,.15); }
+.marquee-track { display: flex; width: max-content; align-items: center; gap: 2rem; padding-block: 1rem; font-family: var(--display); font-weight: 300; font-size: clamp(1.4rem, 3vw, 2.2rem); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+.marquee-track i { font-style: normal; color: #e8a27a; font-size: .6em; }
+
+section.block { position: relative; overflow: hidden; }
+section.block > .wrap { position: relative; z-index: 1; }
+.bgword { position: absolute; top: clamp(1rem, 3vw, 2.5rem); right: -2vw; z-index: 0; pointer-events: none; user-select: none;
+  font-family: var(--display); font-weight: 600; font-size: clamp(5rem, 17vw, 15rem); line-height: 1; letter-spacing: -.02em; text-transform: lowercase; white-space: nowrap;
+  color: transparent; -webkit-text-stroke: 1px var(--line); opacity: .9; will-change: transform; }
+.red .bgword { -webkit-text-stroke-color: rgba(245, 233, 226, .16); }
+.sunset .bgword { -webkit-text-stroke-color: rgba(255, 244, 230, .22); }
+
+.btn, .vid, .sun-link, .feed { transition: background .3s, color .3s, border-color .3s, transform .3s cubic-bezier(.2,.7,.2,1); }
+.btn:hover, .vid:hover, .sun-link:hover { transform: translateY(-2px); }
+.feed:hover { transform: translateY(-4px); }
+.poster { transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s; }
+.poster:hover { transform: translateY(-6px) rotate(-1deg); box-shadow: 0 24px 40px -20px rgba(43,16,12,.55); }
+.browser { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.browser:hover { transform: translateY(-6px); }
+.sunset { background-size: 100% 160%; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-bg b:nth-child(1) { animation: drift1 18s ease-in-out infinite alternate; }
+  .hero-bg b:nth-child(2) { animation: drift2 22s ease-in-out infinite alternate; }
+  .hero-bg b:nth-child(3) { animation: drift3 16s ease-in-out infinite alternate; }
+  @keyframes drift1 { to { transform: translate(18vw, 10vh) scale(1.15); } }
+  @keyframes drift2 { to { transform: translate(-20vw, -8vh) scale(.9); } }
+  @keyframes drift3 { to { transform: translate(-12vw, -14vh) scale(1.25); } }
+  .hero .logo { animation: logoIn 1.4s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes logoIn { from { clip-path: inset(0 0 100% 0); transform: translateY(30px); } to { clip-path: inset(0 0 0 0); transform: none; } }
+  .hero h1 .w { animation: wordUp .9s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(.35s + var(--i) * .09s); }
+  @keyframes wordUp { from { transform: translateY(.6em); opacity: .001; } to { transform: none; opacity: 1; } }
+  .marquee-track { animation: marquee 28s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .kappy-phone { animation: bob 6s ease-in-out infinite; }
+  @keyframes bob { 50% { transform: translateY(-14px) rotate(1deg); } }
+  .sunset { animation: dusk 14s ease-in-out infinite alternate; }
+  @keyframes dusk { to { background-position: 0 100%; } }
+  .rv { transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--d, 0) * 70ms); }
+  .rv.pre { opacity: .001; transform: translateY(36px); }
+}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top">axel.</a>
+    <nav class="menu" aria-label="Sections">
+      <a href="#site">Projets</a>
+      <a href="#reseaux">Réseaux</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#contact" class="pill keep">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero red">
+    <div class="hero-bg" aria-hidden="true"><b></b><b></b><b></b></div>
+    <div class="wrap">
+      <img class="logo" src="../images/logo.png" alt="axel., logo typographique">
+      <div>
+        <p class="label">Photo · Vidéo · Graphisme · Réseaux sociaux</p>
+        <h1>Axel Pionnier</h1>
+        <p class="intro">Passionné par l'image depuis toujours, je crée des vidéos, des visuels et des affiches depuis plus de cinq ans, de la prise de vue jusqu'à la diffusion. Basé à Avize, j'ai envie de mettre ce savoir-faire au service d'une grande maison de Champagne.</p>
+        <div class="cta-row">
+          <a class="btn" href="#site">Voir mon travail</a>
+          <a class="btn ghost" href="#contact">Me contacter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Photo</span><i>✦</i><span>Vidéo</span><i>✦</i><span>Affiches</span><i>✦</i><span>Réseaux sociaux</span><i>✦</i><span>Site web</span><i>✦</i><span>Événementiel</span><i>✦</i>
+      <span>Photo</span><i>✦</i><span>Vidéo</span><i>✦</i><span>Affiches</span><i>✦</i><span>Réseaux sociaux</span><i>✦</i><span>Site web</span><i>✦</i><span>Événementiel</span><i>✦</i>
+    </div>
+  </div>
+
+  <section class="block" id="site">
+    <span class="bgword" aria-hidden="true">csgv.com</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label with-logo"><img class="org" src="../images/csgv-logo.webp" alt="Logo CSGV" width="44" height="44">Projet phare · CSGV</p>
+          <h2>csgv.com, le site de la coopérative</h2>
+        </div>
+      </div>
+      <div class="web">
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><i></i><span>csgv.com</span></div>
+          <img class="shot" src="../images/csgvsite.jpg" alt="Page d'accueil de csgv.com">
+        </div>
+        <div class="web-text">
+          <p>Le site de la coopérative fondée en 1947, pensé pour deux publics&nbsp;: les vignerons adhérents et le grand public. Il présente l'ensemble des services et des filiales du groupe sous une même identité.</p>
+          <p>Plusieurs mois de travail. Je l'ai conçu de A à Z&nbsp;: la maquette et l'ensemble des contenus (textes, photos, articles, documents). Le développement a été réalisé par l'agence IMPAAKT à partir de ma maquette.</p>
+          <ul class="web-list">
+            <li><b>Services</b><span>Technique et environnement, vigne, personnalisation, matériel et SAV, champagnisation</span></li>
+            <li><b>Filiales</b><span>La Pastorale, Champagne Emballage, O2C, CSGV Transports</span></li>
+            <li><b>Adhérents</b><span>Espace connecté, documentation, actualités, carte des magasins</span></li>
+          </ul>
+          <a class="vid" href="https://www.csgv.com/" target="_blank" rel="noopener"><span class="play-dot">↗</span><span>Visiter csgv.com</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="etude">
+    <span class="bgword" aria-hidden="true">affiches</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label with-logo"><img class="org" src="../images/csgv-logo.webp" alt="Logo CSGV" width="44" height="44">Série d'affiches · CSGV</p>
+          <h2>Les affiches des assemblées générales</h2>
+        </div>
+      </div>
+      <ul class="steps steps-row">
+        <li><b>Brief</b><p>Donner envie aux vignerons adhérents de venir à l'assemblée générale de la coopérative.</p></li>
+        <li><b>Idée</b><p>Détourner des affiches de films cultes avec le vocabulaire champenois&nbsp;: cochelet, muselets, parcelles, Vitis.</p></li>
+        <li><b>Rôle</b><p>Tout, de A à Z&nbsp;: idée, réalisation, montage, direction artistique, impression et mise en place.</p></li>
+        <li><b>Résultats</b><p>Une série de 13 affiches, conçues et installées de bout en bout.</p></li>
+      </ul>
+      <div class="wall">
+        <button type="button" class="poster" id="poster-cochelet"><img src="../images/cochelet.jpg" alt="Affiche « Maman, j'ai raté le cochelet », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-muselets"><img src="../images/muselets.jpg" alt="Affiche « Le Seigneur des muselets », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-parcelles"><img src="../images/parcelles.jpg" alt="Affiche « Chérie, j'ai rétréci les parcelles », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-lahaut"><img src="../images/lahaut.jpg" alt="Affiche « Là-haut à Hautvillers », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-vitis"><img src="../images/vitis.jpg" alt="Affiche « Bienvenue chez les Vitis », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-captain"><img src="../images/captain.jpg" alt="Affiche « Captain Champagne », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-ratatouille"><img src="../images/ratatouille.jpg" alt="Affiche « Pâté croûte champenois », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-boursault"><img src="../images/boursault.jpg" alt="Affiche « Le Comte de Boursault », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-dents"><img src="../images/dents.jpg" alt="Affiche « Les Dents de la vigne », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-camping"><img src="../images/camping.jpg" alt="Affiche « En face du camping », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-kaamelott"><img src="../images/kaamelott.jpg" alt="Affiche « Kaamelott », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-cepages"><img src="../images/cepages.jpg" alt="Affiche « Les 3 Cépages », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-oeil"><img src="../images/oeil.jpg" alt="Affiche « La coopérative au sang vert », assemblée générale CSGV" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="couv">
+    <span class="bgword" aria-hidden="true">couvertures</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label with-logo"><img class="org" src="../images/csgv-logo.webp" alt="Logo CSGV" width="44" height="44">Magazine · CSGV</p>
+          <h2>Les couvertures de Champagne Informations</h2>
+        </div>
+        <p class="couv-lede">Chaque année, je choisis la direction artistique du magazine de la coopérative et je conçois ses couvertures.</p>
+      </div>
+      <div class="couv-years">
+        <div class="couv-year">
+          <p class="couv-tag"><b>2026</b><span>Les mouvements artistiques</span></p>
+          <div class="couv-pair">
+            <figure class="cover"><button type="button" class="poster" id="poster-couv-2026-secateur"><img src="../images/couv-2026-secateur.jpg" alt="Couverture Champagne Informations 2026 façon street art, un sécateur" loading="lazy"></button><figcaption>Street art</figcaption></figure>
+            <figure class="cover"><button type="button" class="poster" id="poster-couv-2026-pop"><img src="../images/couv-2026-pop.jpg" alt="Couverture Champagne Informations avril 2026, n°197, façon pop art" loading="lazy"></button><figcaption>Pop art · avril 2026, n°197</figcaption></figure>
+          </div>
+        </div>
+        <div class="couv-year">
+          <p class="couv-tag"><b>2025</b><span>Le parcours d'une bouteille</span></p>
+          <div class="couv-pair">
+            <figure class="cover"><button type="button" class="poster" id="poster-couv-2025-bouteille"><img src="../images/couv-2025-bouteille.jpg" alt="Couverture Champagne Informations janvier 2025, n°192, une bouteille pailletée" loading="lazy"></button><figcaption>Janvier 2025, n°192</figcaption></figure>
+            <figure class="cover"><button type="button" class="poster" id="poster-couv-2025-raisin"><img src="../images/couv-2025-raisin.jpg" alt="Couverture Champagne Informations juillet 2025, n°194, une grappe dans une main" loading="lazy"></button><figcaption>Juillet 2025, n°194</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block red" id="events">
+    <span class="bgword" aria-hidden="true">salons</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label with-logo"><img class="org" src="../images/csgv-logo.webp" alt="Logo CSGV" width="44" height="44">Événementiel · CSGV</p>
+          <h2>Salons et assemblées générales</h2>
+        </div>
+      </div>
+      <p class="ev-lede">Chaque année, avec mon service, j'organise les assemblées générales de la coopérative et je réinvente sa présence sur les grands salons de la filière. Au Viteff comme à VitiVini, la CSGV occupe une place historique&nbsp;: à chaque édition, nous repensons le stand pour proposer un espace nouveau et innovant.</p>
+      <div class="ev-cards">
+        <a class="ev-card" href="#etude"><span class="label">Chaque année</span><span class="h">Assemblées générales</span><span class="d">Organisation avec mon service, du concept à l'affiche, de la scénographie au jour J. Voir les affiches ↑</span></a>
+        <div class="ev-card"><span class="label">Salon</span><span class="h">Viteff</span><span class="d">Une présence historique de la CSGV, un stand réorganisé à chaque édition.</span></div>
+        <div class="ev-card"><span class="label">Salon</span><span class="h">VitiVini</span><span class="d">En 2026, le village CSGV&nbsp;: maisons, rue pavée et olivier. Le reel du premier jour a atteint 5&nbsp;884 vues.</span></div>
+      </div>
+      <div class="ev-film">
+        <div class="ev-video" id="ev-video">
+          <a class="ev-play yt-play" href="https://www.youtube.com/watch?v=xqNfcoQdtHE" target="_blank" rel="noopener" data-yt="xqNfcoQdtHE" aria-label="Lire la vidéo de l'inauguration du nouveau pôle CSGV">
+            <img src="https://i.ytimg.com/vi/xqNfcoQdtHE/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
+            <span class="ev-play-dot">▶</span>
+          </a>
+        </div>
+        <div class="ev-film-text">
+          <p class="label">Vidéo</p>
+          <h3>Inauguration d'un nouveau pôle CSGV</h3>
+          <p>Retour en images sur l'inauguration d'un nouveau pôle de la coopérative.</p>
+        </div>
+      </div>
+      <div class="ev-grid">
+        <figure class="ev-ph wide"><button type="button" class="poster"><img src="../images/ev-foule.jpg" alt="Foule sur le stand CSGV « Tout pour la vigne, tout pour le vin »" loading="lazy"></button></figure>
+        <figure class="ev-ph wide"><button type="button" class="poster"><img src="../images/ev-stand.jpg" alt="Stand CSGV avec visiteurs et matériel exposé" loading="lazy"></button></figure>
+        <figure class="ev-ph"><button type="button" class="poster"><img src="../images/ev-allee.jpg" alt="Allée pavée menant au village CSGV" loading="lazy"></button></figure>
+        <figure class="ev-ph"><button type="button" class="poster"><img src="../images/ev-village.jpg" alt="Le village CSGV, maisons et comptoir en pierre" loading="lazy"></button></figure>
+        <figure class="ev-ph"><button type="button" class="poster"><img src="../images/ev-machines.jpg" alt="Matériel exposé devant les maisons du village CSGV" loading="lazy"></button></figure>
+        <figure class="ev-ph"><button type="button" class="poster"><img src="../images/ev-comptoir.jpg" alt="Comptoir et rue pavée du village CSGV" loading="lazy"></button></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="gammvert">
+    <span class="bgword" aria-hidden="true">potager</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Opération commerciale · Gamm Vert Épernay</p>
+          <h2>Un jour, un légume</h2>
+        </div>
+      </div>
+      <div class="win">
+        <div class="win-main">
+        <div class="win-figure">
+          <span class="big">3<sup>e</sup></span>
+          <span class="win-cap">place nationale du challenge magasins de la Fête du Potager, sur 191 magasins Gamm Vert participants</span>
+        </div>
+        <div class="win-text">
+          <p>J'anime les opérations commerciales et les réseaux sociaux du Gamm Vert d'Épernay. Pour la Fête du Potager 2026, du 8 au 19 avril, nous avons lancé «&nbsp;Un jour, un légume&nbsp;»&nbsp;: un rendez-vous quotidien en vidéo et un jeu concours pour faire vivre l'opération en magasin et en ligne.</p>
+          <p>Le magasin a terminé sur le podium national, une reconnaissance saluée dans les actualités internes du réseau.</p>
+          <div class="vids">
+            <a class="vid" href="https://www.facebook.com/share/r/1FGhC4cQaB/" target="_blank" rel="noopener"><span class="play-dot">▶</span><span>Voir la vidéo n°1</span></a>
+            <a class="vid" href="https://www.facebook.com/share/r/1CYwxURL15/" target="_blank" rel="noopener"><span class="play-dot">▶</span><span>Voir la vidéo n°2</span></a>
+          </div>
+        </div>
+        </div>
+        <figure class="win-photo">
+          <img src="../images/gammvert.jpg" alt="Remise du diplôme Challenge magasin La Fête du Potager 2026 au magasin d'Épernay">
+          <figcaption>Remise du prix, Challenge magasin La Fête du Potager 2026</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="kappy">
+    <span class="bgword" aria-hidden="true">kappy</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Réseaux sociaux · Kappy</p>
+          <h2>L'assistant numérique du vignoble</h2>
+        </div>
+      </div>
+      <div class="kappy">
+        <img class="kappy-phone" src="../images/kappy.webp" alt="L'application Kappy affichée sur un smartphone : « Simplifiez votre suivi agronomique »">
+        <div class="kappy-text">
+          <p>Kappy est une application développée par la CSGV et commercialisée en 2026 auprès des vignerons, pour simplifier leur suivi agronomique.</p>
+          <p>Je modère son compte Instagram, <b>@kappy_vigne</b>.</p>
+          <a class="vid" href="https://www.instagram.com/kappy_vigne/" target="_blank" rel="noopener"><span class="play-dot">↗</span><span>Voir @kappy_vigne</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dialog id="viewer" aria-label="Affiche agrandie">
+    <button type="button" id="viewer-close" class="viewer-close">Fermer</button>
+    <img id="viewer-img" alt="">
+  </dialog>
+
+  <section class="block" id="travaux">
+    <span class="bgword" aria-hidden="true">travaux</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Sélection</p>
+          <h2>Travaux</h2>
+        </div>
+        <div class="filters" role="group" aria-label="Filtrer les travaux">
+          <button type="button" id="f-all" data-f="all" aria-pressed="true">Tout</button>
+          <button type="button" id="f-video" data-f="video" aria-pressed="false">Vidéo</button>
+          <button type="button" id="f-social" data-f="social" aria-pressed="false">Réseaux</button>
+        </div>
+      </div>
+
+      <div class="works">
+        <figure class="work wide ytw" data-cat="video">
+          <div class="plate yt"><a class="yt-play" href="https://www.youtube.com/watch?v=5jTpHwef_-g" target="_blank" rel="noopener" data-yt="5jTpHwef_-g" aria-label="Lire la vidéo CSGV n°1"><img src="https://i.ytimg.com/vi/5jTpHwef_-g/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="yt-dot">▶</span></a></div>
+          <figcaption><span class="t">Vidéo CSGV</span><a class="k yt-chan" href="https://www.youtube.com/@societecsgv6333" target="_blank" rel="noopener">Toute la chaîne ↗</a></figcaption>
+        </figure>
+        <figure class="work third ytw" data-cat="video">
+          <div class="plate yt"><a class="yt-play" href="https://www.youtube.com/watch?v=CiGAXzSP6vo" target="_blank" rel="noopener" data-yt="CiGAXzSP6vo" aria-label="Lire la vidéo CSGV n°2"><img src="https://i.ytimg.com/vi/CiGAXzSP6vo/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="yt-dot">▶</span></a></div>
+          <figcaption><span class="t">Vidéo CSGV</span><span class="k">Tournage, montage</span></figcaption>
+        </figure>
+        <figure class="work third ytw" data-cat="video">
+          <div class="plate yt"><a class="yt-play" href="https://www.youtube.com/watch?v=5j4vuJGt4ec" target="_blank" rel="noopener" data-yt="5j4vuJGt4ec" aria-label="Lire la vidéo CSGV n°3"><img src="https://i.ytimg.com/vi/5j4vuJGt4ec/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="yt-dot">▶</span></a></div>
+          <figcaption><span class="t">Vidéo CSGV</span><span class="k">Tournage, montage</span></figcaption>
+        </figure>
+        <figure class="work third ytw" data-cat="video">
+          <div class="plate yt"><a class="yt-play" href="https://www.youtube.com/watch?v=_t41cmbr0FY" target="_blank" rel="noopener" data-yt="_t41cmbr0FY" aria-label="Lire la vidéo CSGV n°4"><img src="https://i.ytimg.com/vi/_t41cmbr0FY/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="yt-dot">▶</span></a></div>
+          <figcaption><span class="t">Vidéo CSGV</span><span class="k">Tournage, montage</span></figcaption>
+        </figure>
+        <figure class="work third" data-cat="social">
+          <a class="plate pagecard" href="https://www.linkedin.com/company/csgvappro/" target="_blank" rel="noopener">
+            <span class="pc-net">LinkedIn</span>
+            <span class="pc-name">CSGV</span>
+            <span class="pc-stat"><b>2&nbsp;971</b>abonnés · page créée en 2021</span>
+            <span class="pc-go">Voir la page ↗</span>
+          </a>
+          <figcaption><span class="t">Page LinkedIn CSGV</span><span class="k">Création, animation</span></figcaption>
+        </figure>
+        <figure class="work third" data-cat="social">
+          <a class="plate pagecard" href="https://www.facebook.com/share/1CrUnZMZ8j/" target="_blank" rel="noopener">
+            <span class="pc-net">Facebook</span>
+            <span class="pc-name">CSGV</span>
+            <span class="pc-stat"><b>1&nbsp;000</b>abonnés · +599 depuis 2024</span>
+            <span class="pc-go">Voir la page ↗</span>
+          </a>
+          <figcaption><span class="t">Page Facebook CSGV</span><span class="k">Animation, contenus</span></figcaption>
+        </figure>
+        <figure class="work third" data-cat="social">
+          <a class="plate pagecard" href="https://www.facebook.com/share/1NpjZhQ2CJ/?mibextid=wwXIfr" target="_blank" rel="noopener">
+            <span class="pc-net">Facebook</span>
+            <span class="pc-name">Gamm Vert Épernay</span>
+            <span class="pc-stat"><b>400</b>abonnés · vidéos « Un jour, un légume »</span>
+            <span class="pc-go">Voir la page ↗</span>
+          </a>
+          <figcaption><span class="t">Page Facebook Gamm Vert</span><span class="k">Animation, vidéo</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block red" id="reseaux">
+    <span class="bgword" aria-hidden="true">réseaux</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Réseaux sociaux</p>
+          <h2>En chiffres</h2>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="n" data-count="2971" data-prefix="">2&nbsp;971</span><span class="l">abonnés LinkedIn sur une page que j'ai créée et développée depuis 2021</span></div>
+        <div class="stat"><span class="n" data-count="1000" data-prefix="">1&nbsp;000</span><span class="l">abonnés Facebook</span></div>
+        <div class="stat"><span class="n" data-count="599" data-prefix="+">+599</span><span class="l">nouveaux abonnés Facebook depuis 2024</span></div>
+        <div class="stat"><span class="n" data-count="34876" data-prefix="">34&nbsp;876</span><span class="l">vues pour mon meilleur reel</span></div>
+      </div>
+      <div class="feeds">
+        <a class="feed" href="https://www.facebook.com/share/1CrUnZMZ8j/" target="_blank" rel="noopener"><span class="label">Facebook · CSGV</span><span class="h">Page de la coopérative</span><span class="d">Que j'anime ↗</span></a>
+        <a class="feed" href="https://www.linkedin.com/company/csgvappro/" target="_blank" rel="noopener"><span class="label">LinkedIn · CSGV</span><span class="h">Page entreprise</span><span class="d">Que j'anime ↗</span></a>
+        <a class="feed" href="https://www.facebook.com/share/1NpjZhQ2CJ/?mibextid=wwXIfr" target="_blank" rel="noopener"><span class="label">Facebook · Gamm Vert</span><span class="h">Gamm Vert Épernay</span><span class="d">Que j'anime ↗</span></a>
+        <a class="feed" href="https://www.youtube.com/@societecsgv6333" target="_blank" rel="noopener"><span class="label">YouTube · CSGV</span><span class="h">Société CSGV</span><span class="d">Les vidéos que je réalise ↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block sunset" id="perso">
+    <span class="bgword" aria-hidden="true">lumière</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Côté perso · Ma passion</p>
+          <h2>La photographie</h2>
+        </div>
+        <a class="sun-link" href="https://www.instagram.com/axel_pionnier/" target="_blank" rel="noopener">@axel_pionnier ↗</a>
+      </div>
+      <p class="sun-intro">En dehors du travail, je photographie ce qui me fait voyager&nbsp;: lumières, paysages, lieux abandonnés.</p>
+      <div class="sun-grid">
+        <button type="button" class="sun-tile poster tall"><img src="../images/ph-ponton.jpg" alt="Ponton au bord du lac" loading="lazy"></button><button type="button" class="sun-tile poster"><img src="../images/ph-escalier.jpg" alt="Escalier, lieu abandonné" loading="lazy"></button><button type="button" class="sun-tile poster"><img src="../images/ph-hangar.jpg" alt="Hangar désaffecté" loading="lazy"></button><button type="button" class="sun-tile poster"><img src="../images/ph-couloir.jpg" alt="Couloir, lieu abandonné" loading="lazy"></button><button type="button" class="sun-tile poster wide"><img src="../images/ph-banc.jpg" alt="Banc face au lac" loading="lazy"></button><button type="button" class="sun-tile poster half"><img src="../images/ph-drone.jpg" alt="Lac vu du ciel au drone" loading="lazy"></button><button type="button" class="sun-tile poster"><img src="../images/ph-baleine.jpg" alt="Squelette de baleine, galerie de paléontologie" loading="lazy"></button><button type="button" class="sun-tile poster"><img src="../images/ph-entrepot.jpg" alt="Silhouette dans un entrepôt" loading="lazy"></button><button type="button" class="sun-tile poster full"><img src="../images/ph-lune.jpg" alt="Croissant de lune" loading="lazy"></button>
+      </div>
+
+      <div class="gfx-head">
+        <p class="label">Créations perso</p>
+        <h3 class="gfx-title">Le graphisme, à mes heures perdues</h3>
+        <p class="gfx-intro">Sur mon temps libre, je m'essayais aux packshots créatifs&nbsp;: chaque sneaker devenait un paysage, une matière, une histoire. Un terrain de jeu sans brief ni contrainte, pour tester des idées.</p>
+      </div>
+      <div class="gfx-grid">
+        <figure class="gfx"><button type="button" class="poster"><img src="../images/gfx-air-jordan-1-blue.jpg" alt="Création graphique personnelle « Air Jordan 1 · Océan »" loading="lazy"></button><figcaption>Air Jordan 1 · Océan</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="../images/gfx-air-jordan-1-green-og.jpg" alt="Création graphique personnelle « Air Jordan 1 · Forêt »" loading="lazy"></button><figcaption>Air Jordan 1 · Forêt</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="../images/gfx-air-jordan-1-menton.jpg" alt="Création graphique personnelle « Air Jordan 1 · Menton »" loading="lazy"></button><figcaption>Air Jordan 1 · Menton</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="../images/gfx-air-max-97-lil-nas-x.jpg" alt="Création graphique personnelle « Air Max 97 · Lil Nas X »" loading="lazy"></button><figcaption>Air Max 97 · Lil Nas X</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="../images/gfx-cactus-jack.jpg" alt="Création graphique personnelle « Cactus Jack »" loading="lazy"></button><figcaption>Cactus Jack</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="../images/gfx-nike-winter-dior.jpg" alt="Création graphique personnelle « Nike Winter Dior »" loading="lazy"></button><figcaption>Nike Winter Dior</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="../images/gfx-waterspoon.jpg" alt="Création graphique personnelle « Waterspoon »" loading="lazy"></button><figcaption>Waterspoon</figcaption></figure>
+        <figure class="gfx"><button type="button" class="poster"><img src="../images/gfx-to-my-coach-2.jpg" alt="Création graphique personnelle « To my coach »" loading="lazy"></button><figcaption>To my coach</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="parcours">
+    <span class="bgword" aria-hidden="true">parcours</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Parcours</p>
+          <h2>Expériences</h2>
+        </div>
+      </div>
+      <div class="cv">
+        <div>
+          <ol class="timeline">
+            <li><span class="y">2021 — auj.</span><div><h3 class="with-logo"><img class="org sm" src="../images/csgv-logo.webp" alt="" width="28" height="28">Chargé de communication · CSGV</h3><p>Coopérative du Syndicat Général des Vignerons, Épernay · CDI. Vidéos promotionnelles et institutionnelles de la prise de vue au montage, affiches, site et intranet, communication print et TV sur 18 magasins, salons et événements. Animation des opérations commerciales et des réseaux du Gamm Vert d'Épernay.</p></div></li>
+            <li><span class="y">2019 — 2021</span><div><h3>Technicien réparateur · WeFix</h3><p>Saint-Quentin · CDI. Réparation électronique, management d'une petite équipe en atelier, conseil client.</p></div></li>
+            <li><span class="y">2017 — 2018</span><div><h3>Community manager · AB Expérience</h3><p>Amiens · alternance. Articles de blog, visuels digitaux, animation des réseaux sociaux.</p></div></li>
+            <li><span class="y">2015 — 2017</span><div><h3>Agent commercial · Régie Radio Régions</h3><p>Lille · CDD. Prospection B2B et vente d'espace pour Virgin Radio.</p></div></li>
+          </ol>
+          <h3 class="sub">Formation</h3>
+          <ol class="timeline">
+            <li><span class="y">2021 — 2023</span><div><h3>Master Communication 360</h3><p>ECS, Reims</p></div></li>
+            <li><span class="y">2017 — 2018</span><div><h3>Licence Créa-Tec', commerce et communication</h3></div></li>
+            <li><span class="y">2015 — 2017</span><div><h3>BTS Négociation et relation client</h3></div></li>
+          </ol>
+        </div>
+        <div class="kit">
+          <h3>Savoir-faire</h3>
+          <div class="chips"><span>Tournage</span><span>Montage vidéo</span><span>Photographie</span><span>Direction artistique</span><span>Affiches et print</span><span>Réseaux sociaux</span><span>Site web</span><span>Événementiel</span></div>
+          <h3>Outils</h3>
+          <div class="chips"><span>Suite Adobe</span><span>WordPress</span><span>Microsoft 365</span></div>
+          <h3>En dehors</h3>
+          <div class="chips"><span>Vin</span><span>Photo</span><span>Urbex</span><span>Voyage</span><span>Pêche</span><span>Dessin</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block red" id="contact">
+    <div class="wrap contact">
+      <p class="label">Contact</p>
+      <h2>Travaillons ensemble.</h2>
+      <div class="contact-lines">
+        <div><span class="label">E-mail</span><a href="mailto:axel.pionnier@gmail.com">axel.pionnier@gmail.com</a></div>
+        <div><span class="label">Basé à</span><span>Avize, Côte des Blancs</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="red">
+  <div class="wrap"><span>© 2026 axel.</span><span>Photo · Vidéo · Graphisme · Réseaux sociaux</span></div>
+</footer>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.filters button');
+  var works = document.querySelectorAll('.work');
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.getAttribute('data-f');
+      buttons.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      works.forEach(function (w) { w.hidden = !(f === 'all' || w.getAttribute('data-cat') === f); });
+    });
+  });
+  document.querySelectorAll('.yt-play').forEach(function (play) {
+    play.addEventListener('click', function (e) {
+      e.preventDefault();
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + play.getAttribute('data-yt') + '?autoplay=1&rel=0';
+      f.title = play.getAttribute('aria-label');
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      play.replaceWith(f);
+    });
+  });
+  var viewer = document.getElementById('viewer');
+  var vimg = document.getElementById('viewer-img');
+  document.querySelectorAll('.poster').forEach(function (p) {
+    p.addEventListener('click', function () {
+      var img = p.querySelector('img');
+      vimg.src = img.src; vimg.alt = img.alt;
+      if (viewer.showModal) viewer.showModal();
+    });
+  });
+  document.getElementById('viewer-close').addEventListener('click', function () { viewer.close(); });
+  viewer.addEventListener('click', function (e) { if (e.target === viewer) viewer.close(); });
+
+  // Mouvement : menu, filigranes, apparitions, compteurs
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var header = document.querySelector('header.top');
+  var ghosts = [].slice.call(document.querySelectorAll('.bgword'));
+  var logo = document.querySelector('.hero .logo');
+  var ticking = false;
+  function onScroll() {
+    var y = window.scrollY || 0;
+    header.classList.toggle('scrolled', y > 40);
+    if (!reduce) {
+      var vh = window.innerHeight;
+      ghosts.forEach(function (g) {
+        var r = g.parentNode.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) return;
+        var p = (vh - r.top) / (vh + r.height);
+        g.style.transform = 'translateX(' + (-p * 22) + 'vw)';
+      });
+      if (logo && y < vh) logo.style.translate = '0 ' + (y * .18) + 'px';
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  var h1 = document.querySelector('.hero h1');
+  if (h1 && !h1.querySelector('.todo')) {
+    h1.innerHTML = h1.textContent.trim().split(/\s+/).map(function (w, i) { return '<span class="w" style="--i:' + i + '">' + w + '</span>'; }).join(' ');
+  }
+
+  function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0'); }
+  if ('IntersectionObserver' in window && !reduce) {
+    var sel = '.sec-head, .work, .poster, .gfx-head, .ev-card, .ev-lede, .ev-film, .steps li, .stat, .feed, .toplist li, .timeline li, .win-figure, .win-text, .win-photo, .browser, .web-text, .kappy-text, .sun-tile, .sun-intro, .chips span, .cover, .couv-tag, .contact h2, .contact-lines div, .case-visuals .plate';
+    var vh = window.innerHeight;
+    var els = [].slice.call(document.querySelectorAll(sel)).filter(function (el) { return el.getBoundingClientRect().top > vh * .9; });
+    els.forEach(function (el) {
+      var sib = [].slice.call(el.parentNode.children).filter(function (c) { return c.matches(sel); });
+      el.style.setProperty('--d', Math.min(sib.indexOf(el), 8));
+      el.classList.add('rv', 'pre');
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.remove('pre');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target, end = +el.dataset.count, pre = el.dataset.prefix || '', t0 = null;
+        function step(ts) { if (!t0) t0 = ts; var k = Math.min((ts - t0) / 1600, 1), v = Math.round(end * (1 - Math.pow(1 - k, 3))); el.textContent = pre + fmt(v); if (k < 1) requestAnimationFrame(step); }
+        requestAnimationFrame(step);
+        cio.unobserve(el);
+      });
+    }, { threshold: .6 });
+    document.querySelectorAll('[data-count]').forEach(function (el) { cio.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
