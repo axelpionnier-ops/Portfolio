@@ -158,10 +158,11 @@ dialog#viewer img { display: block; max-width: 100%; max-height: 86vh; width: au
 
 #kappy { border-top: 1px solid var(--line); }
 #kappy .label { color: var(--red); }
-.kappy-banner { display: block; width: 100%; height: auto; aspect-ratio: 1169 / 237; object-fit: cover; }
-@media (max-width: 640px) { .kappy-banner { aspect-ratio: 16 / 9; object-position: 20% 50%; } }
-.kappy-text { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem 2rem; margin-top: 1.75rem; }
-.kappy-text p { margin: 0; max-width: 40rem; font-size: 1.1rem; }
+.kappy { display: grid; gap: clamp(1.5rem, 5vw, 4.5rem); align-items: center; }
+@media (min-width: 800px) { .kappy { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); } }
+.kappy-phone { display: block; width: 100%; max-width: 380px; height: auto; justify-self: center; -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 98%); mask-image: linear-gradient(to bottom, #000 72%, transparent 98%); }
+.kappy-text p { margin: 0 0 1rem; max-width: 34rem; font-size: 1.1rem; }
+.kappy-text .vid { margin-top: .75rem; }
 
 /* Réseaux */
 .top { margin-top: 2.5rem; }
@@ -390,10 +391,13 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
           <h2>L'assistant numérique du vignoble</h2>
         </div>
       </div>
-      <img class="kappy-banner" src="images/kappy.jpg" alt="Bannière de lancement de l'application Kappy sur csgv.com">
-      <div class="kappy-text">
-        <p>Kappy est une application développée par la CSGV et commercialisée en 2026 auprès des vignerons. Je modère son compte Instagram, <b>@kappy_vigne</b>.</p>
-        <a class="vid" href="https://www.instagram.com/kappy_vigne/" target="_blank" rel="noopener"><span class="play-dot">↗</span><span>Voir @kappy_vigne</span></a>
+      <div class="kappy">
+        <img class="kappy-phone" src="images/kappy.webp" alt="L'application Kappy affichée sur un smartphone : « Simplifiez votre suivi agronomique »">
+        <div class="kappy-text">
+          <p>Kappy est une application développée par la CSGV et commercialisée en 2026 auprès des vignerons, pour simplifier leur suivi agronomique.</p>
+          <p>Je modère son compte Instagram, <b>@kappy_vigne</b>.</p>
+          <a class="vid" href="https://www.instagram.com/kappy_vigne/" target="_blank" rel="noopener"><span class="play-dot">↗</span><span>Voir @kappy_vigne</span></a>
+        </div>
       </div>
     </div>
   </section>
