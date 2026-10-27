@@ -170,6 +170,19 @@ dialog#viewer img { display: block; max-width: 100%; max-height: 86vh; width: au
 .org.sm { width: 28px; height: 28px; }
 @media (prefers-reduced-motion: no-preference) { .rv:not(.pre) .org:not(.sm) { animation: spinIn 1s cubic-bezier(.2,.7,.2,1) both; } @keyframes spinIn { from { transform: rotate(-90deg) scale(.6); } } }
 
+#couv { border-top: 1px solid var(--line); }
+#couv .label { color: var(--red); }
+.couv-lede { margin: 0; max-width: 28rem; color: var(--ink-soft); font-size: 1.05rem; }
+.couv-years { display: grid; gap: clamp(2rem, 4vw, 3rem); }
+@media (min-width: 900px) { .couv-years { grid-template-columns: 1fr 1fr; } }
+.couv-tag { display: flex; align-items: baseline; gap: 1rem; margin: 0 0 1rem; padding-bottom: .75rem; border-bottom: 1px solid var(--line); }
+.couv-tag b { font-family: var(--display); font-weight: 300; font-size: 2.4rem; line-height: 1; color: var(--red); font-variant-numeric: lining-nums; }
+.couv-tag span { font-style: italic; color: var(--ink-soft); }
+.couv-pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.6rem, 1.5vw, 1rem); }
+.cover { margin: 0; display: grid; gap: .5rem; min-width: 0; }
+.cover .poster { aspect-ratio: 720 / 1018; }
+.cover figcaption { font-size: var(--s-xs); font-style: italic; color: var(--ink-soft); }
+
 /* Réseaux */
 .toplist { margin-top: 2.5rem; }
 .toplist ol { list-style: none; margin: .9rem 0 0; padding: 0; }
@@ -396,6 +409,35 @@ section.block > .wrap { position: relative; z-index: 1; }
         <button type="button" class="poster" id="poster-kaamelott"><img src="images/kaamelott.jpg" alt="Affiche « Kaamelott », assemblée générale CSGV" loading="lazy"></button>
         <button type="button" class="poster" id="poster-cepages"><img src="images/cepages.jpg" alt="Affiche « Les 3 Cépages », assemblée générale CSGV" loading="lazy"></button>
         <button type="button" class="poster" id="poster-oeil"><img src="images/oeil.jpg" alt="Affiche « La coopérative au sang vert », assemblée générale CSGV" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="couv">
+    <span class="bgword" aria-hidden="true">couvertures</span>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label with-logo"><img class="org" src="images/csgv-logo.webp" alt="Logo CSGV" width="44" height="44">Magazine · CSGV</p>
+          <h2>Les couvertures de Champagne Informations</h2>
+        </div>
+        <p class="couv-lede">Chaque année, je choisis la direction artistique du magazine de la coopérative et je dessine ses couvertures.</p>
+      </div>
+      <div class="couv-years">
+        <div class="couv-year">
+          <p class="couv-tag"><b>2026</b><span>Les mouvements artistiques</span></p>
+          <div class="couv-pair">
+            <figure class="cover"><button type="button" class="poster" id="poster-couv-2026-secateur"><img src="images/couv-2026-secateur.jpg" alt="Couverture Champagne Informations 2026 façon street art, un sécateur" loading="lazy"></button><figcaption>Street art</figcaption></figure>
+            <figure class="cover"><button type="button" class="poster" id="poster-couv-2026-pop"><img src="images/couv-2026-pop.jpg" alt="Couverture Champagne Informations avril 2026, n°197, façon pop art" loading="lazy"></button><figcaption>Pop art · avril 2026, n°197</figcaption></figure>
+          </div>
+        </div>
+        <div class="couv-year">
+          <p class="couv-tag"><b>2025</b><span>Le parcours d'une bouteille</span></p>
+          <div class="couv-pair">
+            <figure class="cover"><button type="button" class="poster" id="poster-couv-2025-bouteille"><img src="images/couv-2025-bouteille.jpg" alt="Couverture Champagne Informations janvier 2025, n°192, une bouteille pailletée" loading="lazy"></button><figcaption>Janvier 2025, n°192</figcaption></figure>
+            <figure class="cover"><button type="button" class="poster" id="poster-couv-2025-raisin"><img src="images/couv-2025-raisin.jpg" alt="Couverture Champagne Informations juillet 2025, n°194, une grappe dans une main" loading="lazy"></button><figcaption>Juillet 2025, n°194</figcaption></figure>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -661,7 +703,7 @@ section.block > .wrap { position: relative; z-index: 1; }
 
   function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0'); }
   if ('IntersectionObserver' in window && !reduce) {
-    var sel = '.sec-head, .work, .poster, .steps li, .stat, .feed, .toplist li, .timeline li, .win-figure, .win-text, .win-photo, .browser, .web-text, .kappy-text, .sun-tile, .sun-intro, .chips span, .contact h2, .contact-lines div, .case-visuals .plate';
+    var sel = '.sec-head, .work, .poster, .steps li, .stat, .feed, .toplist li, .timeline li, .win-figure, .win-text, .win-photo, .browser, .web-text, .kappy-text, .sun-tile, .sun-intro, .chips span, .cover, .couv-tag, .contact h2, .contact-lines div, .case-visuals .plate';
     var vh = window.innerHeight;
     var els = [].slice.call(document.querySelectorAll(sel)).filter(function (el) { return el.getBoundingClientRect().top > vh * .9; });
     els.forEach(function (el) {
