@@ -86,6 +86,13 @@ section.block { padding-block: clamp(4rem, 9vw, 6.5rem); }
 .work .k { font-size: var(--s-xs); font-style: italic; color: var(--ink-soft); }
 .work .plate { aspect-ratio: 4 / 5; }
 .work.wide .plate { aspect-ratio: 16 / 9; }
+.work .pagecard { aspect-ratio: 4 / 5; background: var(--red); color: #f5e9e2; display: flex; flex-direction: column; padding: clamp(1.1rem, 2.5vw, 1.6rem); text-decoration: none; transition: background .3s, transform .4s cubic-bezier(.2,.7,.2,1); }
+.work .pagecard:hover { background: var(--red-deep); transform: translateY(-4px); }
+.pc-net { font-family: var(--display); text-transform: uppercase; letter-spacing: .18em; font-size: var(--s-xs); opacity: .8; }
+.pc-name { font-family: var(--display); font-size: clamp(1.7rem, 3.4vw, 2.5rem); line-height: 1.05; margin-top: .6rem; }
+.pc-stat { margin-top: auto; font-style: italic; font-size: var(--s-sm); opacity: .9; display: grid; gap: .2rem; }
+.pc-stat b { font-family: var(--display); font-style: normal; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1; font-weight: 400; }
+.pc-go { margin-top: 1rem; padding-top: .8rem; border-top: 1px solid rgba(245,233,226,.35); font-size: var(--s-sm); }
 @media (min-width: 720px) {
   .work { grid-column: span 6; }
   .work.wide { grid-column: span 12; }
@@ -529,19 +536,38 @@ section.block > .wrap { position: relative; z-index: 1; }
           <figcaption><span class="t">Portraits</span><span class="k">Reportage</span></figcaption>
         </figure>
         <figure class="work third" data-cat="social">
-          <div class="plate" role="img" aria-label="Emplacement reel"><span class="play">REEL</span><span class="what">Reel ou TikTok</span></div>
-          <figcaption><span class="t">Reel</span><span class="k">Instagram</span></figcaption>
+          <a class="plate pagecard" href="https://www.linkedin.com/company/csgvappro/" target="_blank" rel="noopener">
+            <span class="pc-net">LinkedIn</span>
+            <span class="pc-name">CSGV</span>
+            <span class="pc-stat"><b>2&nbsp;971</b>abonnés · page créée en 2021</span>
+            <span class="pc-go">Voir la page ↗</span>
+          </a>
+          <figcaption><span class="t">Page LinkedIn CSGV</span><span class="k">Création, animation</span></figcaption>
         </figure>
         <figure class="work third" data-cat="social">
-          <div class="plate" role="img" aria-label="Emplacement carrousel"><span class="what">Carrousel Instagram</span></div>
-          <figcaption><span class="t">Campagne sociale</span><span class="k">Direction artistique</span></figcaption>
+          <a class="plate pagecard" href="https://www.facebook.com/share/1CrUnZMZ8j/" target="_blank" rel="noopener">
+            <span class="pc-net">Facebook</span>
+            <span class="pc-name">CSGV</span>
+            <span class="pc-stat"><b>1&nbsp;000</b>abonnés · +599 depuis 2024</span>
+            <span class="pc-go">Voir la page ↗</span>
+          </a>
+          <figcaption><span class="t">Page Facebook CSGV</span><span class="k">Animation, contenus</span></figcaption>
         </figure>
-        <figure class="work third" data-cat="video">
+        <figure class="work third" data-cat="social">
+          <a class="plate pagecard" href="https://www.facebook.com/share/1NpjZhQ2CJ/?mibextid=wwXIfr" target="_blank" rel="noopener">
+            <span class="pc-net">Facebook</span>
+            <span class="pc-name">Gamm Vert Épernay</span>
+            <span class="pc-stat"><b></b>Opérations commerciales et vidéos « Un jour, un légume »</span>
+            <span class="pc-go">Voir la page ↗</span>
+          </a>
+          <figcaption><span class="t">Page Facebook Gamm Vert</span><span class="k">Animation, vidéo</span></figcaption>
+        </figure>
+        <figure class="work" data-cat="video">
           <div class="plate" role="img" aria-label="Emplacement vidéo"><span class="play">FILM</span><span class="what">Événement</span></div>
           <figcaption><span class="t">Événementiel</span><span class="k">Captation</span></figcaption>
         </figure>
-        <figure class="work wide" data-cat="photo">
-          <div class="plate" role="img" aria-label="Emplacement photo"><span class="what">Paysage, vignoble · 16:9</span></div>
+        <figure class="work" data-cat="photo">
+          <div class="plate" role="img" aria-label="Emplacement photo"><span class="what">Paysage, vignoble · 4:5</span></div>
           <figcaption><span class="t">Terroir</span><span class="k">Paysage</span></figcaption>
         </figure>
       </div>
@@ -574,6 +600,7 @@ section.block > .wrap { position: relative; z-index: 1; }
       <div class="feeds">
         <a class="feed" href="https://www.facebook.com/share/1CrUnZMZ8j/" target="_blank" rel="noopener"><span class="label">Facebook · CSGV</span><span class="h">Page de la coopérative</span><span class="d">Que j'anime ↗</span></a>
         <a class="feed" href="https://www.linkedin.com/company/csgvappro/" target="_blank" rel="noopener"><span class="label">LinkedIn · CSGV</span><span class="h">Page entreprise</span><span class="d">Que j'anime ↗</span></a>
+        <a class="feed" href="https://www.facebook.com/share/1NpjZhQ2CJ/?mibextid=wwXIfr" target="_blank" rel="noopener"><span class="label">Facebook · Gamm Vert</span><span class="h">Gamm Vert Épernay</span><span class="d">Que j'anime ↗</span></a>
         <a class="feed" href="https://www.youtube.com/@societecsgv6333" target="_blank" rel="noopener"><span class="label">YouTube · CSGV</span><span class="h">Société CSGV</span><span class="d">Les vidéos que je réalise ↗</span></a>
         <a class="feed" href="#reseaux"><span class="label">LinkedIn · Axel</span><span class="h">Mon profil</span><span class="d">Lien à ajouter</span></a>
       </div>
