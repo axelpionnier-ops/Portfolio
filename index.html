@@ -46,9 +46,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--red); color: var(--paper-on-red); border-bottom: 1px solid var(--red-deep); }
 header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .85rem; }
 .mark { font-family: var(--body); font-weight: 600; font-size: 1.5rem; line-height: 1; text-decoration: none; letter-spacing: -.02em; }
-nav.menu { display: flex; gap: clamp(1rem, 3vw, 2.25rem); flex-wrap: wrap; justify-content: flex-end; }
-nav.menu a { font-family: var(--display); font-size: var(--s-sm); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; opacity: .85; }
+nav.menu { display: flex; gap: clamp(.9rem, 1.6vw, 1.5rem); flex-wrap: nowrap; justify-content: flex-end; }
+nav.menu a { font-family: var(--display); font-size: var(--s-sm); letter-spacing: .08em; white-space: nowrap; text-transform: uppercase; text-decoration: none; opacity: .85; }
 nav.menu a:hover { opacity: 1; }
+@media (max-width: 1080px) { nav.menu a.minor { display: none; } }
 @media (max-width: 560px) { nav.menu a:not(.keep) { display: none; } }
 
 /* Ouverture */
@@ -179,6 +180,22 @@ dialog#viewer img { display: block; max-width: 100%; max-height: 86vh; width: au
 .feed .h { font-family: var(--display); font-size: 1.3rem; }
 .feed .d { font-size: var(--s-sm); font-style: italic; opacity: .8; }
 
+/* Perso : univers coucher de soleil, distinct du rouge */
+.sunset { --sun-night: #24103a; --sun-violet: #5a2a83; --sun-rose: #c2507a; --sun-orange: #f08a4b; --sun-gold: #ffd36b; --sun-text: #fff4e6;
+  background: linear-gradient(170deg, var(--sun-night) 0%, var(--sun-violet) 38%, var(--sun-rose) 68%, var(--sun-orange) 88%, var(--sun-gold) 100%); color: var(--sun-text); }
+.sunset .label { color: var(--sun-gold); }
+.sunset h2 { font-style: italic; }
+.sun-link { font-family: var(--display); font-weight: 600; letter-spacing: .06em; text-decoration: none; padding: .7rem 1.2rem; border: 1px solid var(--sun-gold); color: var(--sun-gold); }
+.sun-link:hover { background: var(--sun-gold); color: var(--sun-night); }
+.sun-intro { max-width: 36rem; font-size: 1.15rem; margin: 0 0 2.5rem; }
+.sunset .todo { color: var(--sun-gold); }
+.sun-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(.6rem, 1.5vw, 1rem); }
+@media (min-width: 760px) { .sun-grid { grid-template-columns: repeat(4, 1fr); } .sun-tile.tall { grid-row: span 2; } .sun-tile.wide { grid-column: span 3; } }
+.sun-tile { aspect-ratio: 4 / 5; background: repeating-linear-gradient(135deg, rgba(255, 244, 230, .10) 0 14px, rgba(255, 244, 230, .18) 14px 15px); border: 1px solid rgba(255, 244, 230, .25); display: grid; place-items: center; font-style: italic; color: rgba(255, 244, 230, .8); }
+.sun-tile.tall { aspect-ratio: auto; min-height: 100%; }
+.sun-tile.wide { aspect-ratio: auto; min-height: 12rem; }
+@media (max-width: 759px) { .sun-tile.tall { aspect-ratio: 4 / 5; } .sun-tile.wide { grid-column: span 2; aspect-ratio: 16 / 9; } }
+
 /* Parcours */
 #parcours .label { color: var(--red); }
 .cv { display: grid; gap: clamp(2rem, 5vw, 4rem); }
@@ -219,10 +236,11 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     <nav class="menu" aria-label="Sections">
       <a href="#site" class="keep">Projet phare</a>
       <a href="#etude">Affiches</a>
-      <a href="#gammvert">Gamm Vert</a>
-      <a href="#kappy">Kappy</a>
-      <a href="#travaux">Travaux</a>
+      <a class="minor" href="#gammvert">Gamm Vert</a>
+      <a class="minor" href="#kappy">Kappy</a>
+      <a class="minor" href="#travaux">Travaux</a>
       <a href="#reseaux">Réseaux</a>
+      <a href="#perso">Perso</a>
       <a href="#parcours">Parcours</a>
       <a href="#contact" class="keep">Contact</a>
     </nav>
@@ -434,6 +452,22 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
         <a class="feed" href="https://www.linkedin.com/company/csgvappro/" target="_blank" rel="noopener"><span class="label">LinkedIn · CSGV</span><span class="h">Page entreprise</span><span class="d">Que j'anime ↗</span></a>
         <a class="feed" href="https://www.youtube.com/@societecsgv6333" target="_blank" rel="noopener"><span class="label">YouTube · CSGV</span><span class="h">Société CSGV</span><span class="d">Les vidéos que je réalise ↗</span></a>
         <a class="feed" href="#reseaux"><span class="label">LinkedIn · Axel</span><span class="h">Mon profil</span><span class="d">Lien à ajouter</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block sunset" id="perso">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Côté perso · Ma passion</p>
+          <h2>La photographie</h2>
+        </div>
+        <a class="sun-link" href="https://www.instagram.com/axel_pionnier/" target="_blank" rel="noopener">@axel_pionnier ↗</a>
+      </div>
+      <p class="sun-intro">En dehors du travail, je photographie ce qui me fait voyager&nbsp;: lumières, paysages, lieux abandonnés. <span class="todo">À valider</span></p>
+      <div class="sun-grid">
+        <div class="sun-tile tall" role="img" aria-label="Emplacement photo personnelle"><span>Photo 1</span></div><div class="sun-tile" role="img" aria-label="Emplacement photo personnelle"><span>Photo 2</span></div><div class="sun-tile" role="img" aria-label="Emplacement photo personnelle"><span>Photo 3</span></div><div class="sun-tile" role="img" aria-label="Emplacement photo personnelle"><span>Photo 4</span></div><div class="sun-tile wide" role="img" aria-label="Emplacement photo personnelle"><span>Photo 5</span></div>
       </div>
     </div>
   </section>
