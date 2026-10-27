@@ -86,6 +86,14 @@ section.block { padding-block: clamp(4rem, 9vw, 6.5rem); }
 .work .k { font-size: var(--s-xs); font-style: italic; color: var(--ink-soft); }
 .work .plate { aspect-ratio: 4 / 5; }
 .work.wide .plate { aspect-ratio: 16 / 9; }
+.work.ytw .plate { aspect-ratio: 16 / 9; background: var(--red); }
+.plate.yt iframe, .yt-play, .yt-play img { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.yt-play img { object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.yt-play:hover img { transform: scale(1.04); }
+.yt-dot { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: 3.6rem; height: 3.6rem; border-radius: 50%; display: grid; place-items: center; background: var(--paper-on-red); color: var(--red); font-size: 1.1rem; padding-left: .15rem; box-shadow: 0 10px 30px -10px rgba(0,0,0,.6); transition: transform .3s; }
+.yt-play:hover .yt-dot { transform: scale(1.08); }
+a.yt-chan { color: var(--red); font-style: normal; font-weight: 600; text-decoration: none; }
+a.yt-chan:hover { text-decoration: underline; }
 .work .pagecard { aspect-ratio: 4 / 5; background: var(--red); color: #f5e9e2; display: flex; flex-direction: column; padding: clamp(1.1rem, 2.5vw, 1.6rem); text-decoration: none; transition: background .3s, transform .4s cubic-bezier(.2,.7,.2,1); }
 .work .pagecard:hover { background: var(--red-deep); transform: translateY(-4px); }
 .pc-net { font-family: var(--display); text-transform: uppercase; letter-spacing: .18em; font-size: var(--s-xs); opacity: .8; }
@@ -501,7 +509,7 @@ section.block > .wrap { position: relative; z-index: 1; }
       </div>
       <div class="ev-film">
         <div class="ev-video" id="ev-video">
-          <a class="ev-play" href="https://www.youtube.com/watch?v=xqNfcoQdtHE" target="_blank" rel="noopener" data-yt="xqNfcoQdtHE" aria-label="Lire la vidéo de l'inauguration du nouveau pôle CSGV">
+          <a class="ev-play yt-play" href="https://www.youtube.com/watch?v=xqNfcoQdtHE" target="_blank" rel="noopener" data-yt="xqNfcoQdtHE" aria-label="Lire la vidéo de l'inauguration du nouveau pôle CSGV">
             <img src="https://i.ytimg.com/vi/xqNfcoQdtHE/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
             <span class="ev-play-dot">▶</span>
           </a>
@@ -597,9 +605,21 @@ section.block > .wrap { position: relative; z-index: 1; }
       </div>
 
       <div class="works">
-        <figure class="work wide" data-cat="video">
-          <div class="plate" role="img" aria-label="Emplacement vidéo"><span class="play">FILM</span><span class="what">Film de marque ou de vendanges · 16:9</span></div>
-          <figcaption><span class="t">Titre du film <span class="todo">À remplir</span></span><span class="k">Réalisation, montage</span></figcaption>
+        <figure class="work wide ytw" data-cat="video">
+          <div class="plate yt"><a class="yt-play" href="https://www.youtube.com/watch?v=5jTpHwef_-g" target="_blank" rel="noopener" data-yt="5jTpHwef_-g" aria-label="Lire la vidéo CSGV n°1"><img src="https://i.ytimg.com/vi/5jTpHwef_-g/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="yt-dot">▶</span></a></div>
+          <figcaption><span class="t">Chaîne YouTube CSGV</span><a class="k yt-chan" href="https://www.youtube.com/@societecsgv6333" target="_blank" rel="noopener">Toute la chaîne ↗</a></figcaption>
+        </figure>
+        <figure class="work third ytw" data-cat="video">
+          <div class="plate yt"><a class="yt-play" href="https://www.youtube.com/watch?v=CiGAXzSP6vo" target="_blank" rel="noopener" data-yt="CiGAXzSP6vo" aria-label="Lire la vidéo CSGV n°2"><img src="https://i.ytimg.com/vi/CiGAXzSP6vo/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="yt-dot">▶</span></a></div>
+          <figcaption><span class="t">Vidéo CSGV</span><span class="k">Tournage, montage</span></figcaption>
+        </figure>
+        <figure class="work third ytw" data-cat="video">
+          <div class="plate yt"><a class="yt-play" href="https://www.youtube.com/watch?v=5j4vuJGt4ec" target="_blank" rel="noopener" data-yt="5j4vuJGt4ec" aria-label="Lire la vidéo CSGV n°3"><img src="https://i.ytimg.com/vi/5j4vuJGt4ec/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="yt-dot">▶</span></a></div>
+          <figcaption><span class="t">Vidéo CSGV</span><span class="k">Tournage, montage</span></figcaption>
+        </figure>
+        <figure class="work third ytw" data-cat="video">
+          <div class="plate yt"><a class="yt-play" href="https://www.youtube.com/watch?v=_t41cmbr0FY" target="_blank" rel="noopener" data-yt="_t41cmbr0FY" aria-label="Lire la vidéo CSGV n°4"><img src="https://i.ytimg.com/vi/_t41cmbr0FY/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="yt-dot">▶</span></a></div>
+          <figcaption><span class="t">Vidéo CSGV</span><span class="k">Tournage, montage</span></figcaption>
         </figure>
         <figure class="work" data-cat="photo">
           <div class="plate" role="img" aria-label="Emplacement photo"><span class="what">Photo produit · 4:5</span></div>
@@ -636,12 +656,8 @@ section.block > .wrap { position: relative; z-index: 1; }
           </a>
           <figcaption><span class="t">Page Facebook Gamm Vert</span><span class="k">Animation, vidéo</span></figcaption>
         </figure>
-        <figure class="work" data-cat="video">
-          <div class="plate" role="img" aria-label="Emplacement vidéo"><span class="play">FILM</span><span class="what">Événement</span></div>
-          <figcaption><span class="t">Événementiel</span><span class="k">Captation</span></figcaption>
-        </figure>
-        <figure class="work" data-cat="photo">
-          <div class="plate" role="img" aria-label="Emplacement photo"><span class="what">Paysage, vignoble · 4:5</span></div>
+        <figure class="work wide" data-cat="photo">
+          <div class="plate" role="img" aria-label="Emplacement photo"><span class="what">Paysage, vignoble · 16:9</span></div>
           <figcaption><span class="t">Terroir</span><span class="k">Paysage</span></figcaption>
         </figure>
       </div>
@@ -777,15 +793,16 @@ section.block > .wrap { position: relative; z-index: 1; }
       works.forEach(function (w) { w.hidden = !(f === 'all' || w.getAttribute('data-cat') === f); });
     });
   });
-  var play = document.querySelector('.ev-play');
-  if (play) play.addEventListener('click', function (e) {
-    e.preventDefault();
-    var f = document.createElement('iframe');
-    f.src = 'https://www.youtube-nocookie.com/embed/' + play.getAttribute('data-yt') + '?autoplay=1&rel=0';
-    f.title = 'Inauguration d\'un nouveau pôle CSGV';
-    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-    f.allowFullscreen = true;
-    play.replaceWith(f);
+  document.querySelectorAll('.yt-play').forEach(function (play) {
+    play.addEventListener('click', function (e) {
+      e.preventDefault();
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + play.getAttribute('data-yt') + '?autoplay=1&rel=0';
+      f.title = play.getAttribute('aria-label');
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      play.replaceWith(f);
+    });
   });
   var viewer = document.getElementById('viewer');
   var vimg = document.getElementById('viewer-img');
