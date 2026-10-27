@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Portfolio Axel</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Portfolio photo, vidéo et réseaux sociaux d'Axel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap">
+<style>
+/* Layout : grandes bandes pleine largeur, le rouge en dominante (ouverture, réseaux, contact) alterné avec un papier clair pour les travaux. Un seul look clair, assumé. */
+:root {
+  --red: #711B11;          /* dominante, choisie par Axel */
+  --red-deep: #561409;     /* survols, filets sur rouge */
+  --paper: #f5efea;        /* fond clair */
+  --paper-on-red: #f5e9e2; /* texte sur rouge */
+  --ink: #2b100c;          /* texte sur papier */
+  --ink-soft: #6f4c46;     /* texte secondaire */
+  --line: #ddcbc4;         /* filets sur papier */
+  --ph-a: #e8dcd6; --ph-b: #dccdc6; /* emplacements visuels */
+  --display: "Josefin Sans", "Futura", "Century Gothic", "Avenir Next", sans-serif;
+  --body: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+  --s-xs: .78rem; --s-sm: .92rem; --s-md: 1.0625rem; --s-lg: 1.5rem; --s-xl: clamp(2.1rem, 4.6vw, 3.4rem); --s-xxl: clamp(2.8rem, 7vw, 5.5rem);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: var(--s-md); line-height: 1.6; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+@media (min-width: 720px) { .wrap { padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px)); } }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 300; text-wrap: balance; margin: 0; }
+.label { font-family: var(--display); font-weight: 700; font-size: var(--s-xs); letter-spacing: .2em; text-transform: uppercase; }
+.todo { font-family: var(--body); font-style: italic; font-size: .72rem; border: 1px dashed currentColor; padding: .05em .45em; border-radius: 2px; white-space: nowrap; vertical-align: middle; opacity: .8; font-weight: 400; letter-spacing: 0; text-transform: none; }
+
+/* Bandes rouges */
+.red { background: var(--red); color: var(--paper-on-red); }
+.red .ph-a { --ph-a: #7d2519; --ph-b: #8a2f22; }
+
+/* En-tête */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--red); }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--red); color: var(--paper-on-red); border-bottom: 1px solid var(--red-deep); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .85rem; }
+.mark { font-family: var(--body); font-weight: 600; font-size: 1.5rem; line-height: 1; text-decoration: none; letter-spacing: -.02em; }
+nav.menu { display: flex; gap: clamp(1rem, 3vw, 2.25rem); flex-wrap: wrap; justify-content: flex-end; }
+nav.menu a { font-family: var(--display); font-size: var(--s-sm); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; opacity: .85; }
+nav.menu a:hover { opacity: 1; }
+@media (max-width: 560px) { nav.menu a:not(.keep) { display: none; } }
+
+/* Ouverture */
+.hero .wrap { display: grid; gap: clamp(2rem, 5vw, 4.5rem); padding-block: clamp(2.5rem, 6vw, 5rem); align-items: center; }
+@media (min-width: 820px) { .hero .wrap { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); } }
+.hero .logo { width: 100%; max-width: 520px; height: auto; display: block; justify-self: center; }
+.hero h1 { font-size: var(--s-xxl); line-height: 1; letter-spacing: .01em; margin-top: 1rem; }
+.hero .intro { font-size: 1.2rem; line-height: 1.55; margin: 1.5rem 0 0; max-width: 32rem; font-weight: 350; }
+.cta-row { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 2.25rem; }
+.btn { display: inline-flex; align-items: center; padding: .85rem 1.5rem; font-family: var(--display); font-weight: 700; font-size: var(--s-xs); letter-spacing: .18em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--paper-on-red); background: var(--paper-on-red); color: var(--red); }
+.btn.ghost { background: transparent; color: var(--paper-on-red); }
+.btn:hover { background: var(--red-deep); color: var(--paper-on-red); border-color: var(--red-deep); }
+
+/* Emplacements visuels */
+.plate { position: relative; max-width: 100%; background: repeating-linear-gradient(135deg, var(--ph-a) 0 14px, var(--ph-b) 14px 15px); overflow: hidden; }
+.plate .what { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 1rem; font-style: italic; color: var(--ink-soft); }
+.plate img, .plate video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.play { position: absolute; top: .8rem; left: .8rem; font-family: var(--display); font-weight: 700; font-size: .7rem; letter-spacing: .15em; padding: .3rem .6rem; background: var(--red); color: var(--paper-on-red); }
+
+/* Sections */
+section.block { padding-block: clamp(4rem, 9vw, 6.5rem); }
+.sec-head { display: flex; justify-content: space-between; align-items: end; gap: 1rem 2rem; flex-wrap: wrap; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.sec-head h2 { font-size: var(--s-xl); line-height: 1.05; margin-top: .5rem; }
+#travaux .label { color: var(--red); }
+
+/* Travaux */
+.filters { display: flex; gap: .5rem; flex-wrap: wrap; }
+.filters button { font-family: var(--display); font-size: var(--s-sm); letter-spacing: .08em; padding: .45rem 1.05rem; border: 1px solid var(--line); background: transparent; color: var(--ink-soft); cursor: pointer; border-radius: 999px; }
+.filters button[aria-pressed="true"] { border-color: var(--red); background: var(--red); color: var(--paper-on-red); }
+.works { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(.75rem, 2vw, 1.5rem); }
+.work { grid-column: span 12; margin: 0; display: grid; gap: .55rem; min-width: 0; }
+.work figcaption { display: flex; justify-content: space-between; gap: .25rem 1rem; align-items: baseline; flex-wrap: wrap; }
+.work .t { font-family: var(--display); font-size: 1.2rem; }
+.work .k { font-size: var(--s-xs); font-style: italic; color: var(--ink-soft); }
+.work .plate { aspect-ratio: 4 / 5; }
+.work.wide .plate { aspect-ratio: 16 / 9; }
+@media (min-width: 720px) {
+  .work { grid-column: span 6; }
+  .work.wide { grid-column: span 12; }
+  .work.third { grid-column: span 4; }
+}
+
+/* Étude de cas */
+#etude { border-top: 1px solid var(--line); }
+#etude .label { color: var(--red); }
+.case { display: grid; gap: clamp(2rem, 5vw, 4rem); }
+@media (min-width: 900px) { .case { grid-template-columns: 1fr 1.2fr; } }
+.steps { display: grid; gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.steps li { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; border-top: 1px solid var(--line); padding-top: .9rem; }
+.steps b { font-family: var(--display); font-weight: 700; font-size: var(--s-xs); text-transform: uppercase; letter-spacing: .16em; color: var(--red); padding-top: .25em; }
+.steps p { margin: 0; color: var(--ink-soft); }
+.case-visuals { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.case-visuals .plate { aspect-ratio: 4 / 5; }
+.case-visuals .plate:first-child { grid-column: span 2; aspect-ratio: 3 / 2; }
+
+.steps-row { margin-bottom: clamp(2rem, 4vw, 3rem); }
+@media (min-width: 900px) { .steps-row { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } .steps-row li { grid-template-columns: 1fr; gap: .4rem; align-content: start; } }
+.wall { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(.6rem, 1.5vw, 1rem); }
+.wall .poster:first-child { grid-column: span 2; grid-row: span 2; }
+@media (min-width: 600px) { .wall { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1000px) { .wall { grid-template-columns: repeat(8, 1fr); } }
+.poster { padding: 0; border: 0; background: var(--ph-a); cursor: zoom-in; aspect-ratio: 3 / 4; overflow: hidden; display: block; width: 100%; }
+.poster img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.poster:hover img { transform: scale(1.04); }
+dialog#viewer { border: 0; padding: 0; background: transparent; max-width: min(92vw, 720px); max-height: 92vh; overflow: visible; }
+dialog#viewer::backdrop { background: rgba(43, 16, 12, .88); }
+dialog#viewer img { display: block; max-width: 100%; max-height: 86vh; width: auto; margin: 0 auto; }
+.viewer-close { display: block; margin: 0 0 .6rem auto; font-family: var(--display); font-weight: 700; font-size: var(--s-xs); letter-spacing: .18em; text-transform: uppercase; background: var(--paper-on-red); color: var(--red); border: 0; padding: .55rem 1rem; cursor: pointer; }
+.sub { font-size: 1.25rem; margin: 2.5rem 0 .25rem; color: var(--red); }
+
+#gammvert { border-top: 1px solid var(--line); }
+#gammvert .label { color: var(--red); }
+.win { display: grid; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+@media (min-width: 860px) { .win { grid-template-columns: 1.3fr 1fr; } }
+.win-main { display: grid; gap: 2rem; min-width: 0; }
+.win-photo { margin: 0; display: grid; gap: .6rem; }
+.win-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 40%; display: block; }
+.win-photo figcaption { font-size: var(--s-xs); font-style: italic; color: var(--ink-soft); }
+.win-figure { display: grid; gap: .5rem; border-left: 3px solid var(--red); padding-left: clamp(1rem, 3vw, 2rem); }
+.big { font-family: var(--display); font-weight: 300; font-size: clamp(6rem, 16vw, 10rem); line-height: .85; color: var(--red); }
+.big sup { font-size: .35em; vertical-align: top; margin-left: .05em; }
+.win-cap { max-width: 22rem; color: var(--ink-soft); }
+.win-text p { margin: 0 0 1rem; max-width: 36rem; font-size: 1.1rem; }
+
+.vids { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: .5rem; }
+.vid { display: inline-flex; align-items: center; gap: .7rem; padding: .7rem 1.1rem .7rem .7rem; border: 1px solid var(--red); color: var(--red); text-decoration: none; font-family: var(--display); font-weight: 600; font-size: var(--s-sm); letter-spacing: .04em; }
+.vid:hover { background: var(--red); color: var(--paper-on-red); }
+.play-dot { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--red); color: var(--paper-on-red); font-size: .7rem; }
+.vid:hover .play-dot { background: var(--paper-on-red); color: var(--red); }
+
+#site { background: var(--paper); }
+#site h2 { font-size: var(--s-xxl); line-height: 1; }
+#site .label { color: var(--red); }
+.web { display: grid; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+@media (min-width: 900px) { .web { grid-template-columns: 1.6fr 1fr; } }
+.browser { border: 1px solid var(--line); background: var(--paper); min-width: 0; box-shadow: 0 18px 40px -24px rgba(43, 16, 12, .35); }
+.browser-bar { display: flex; align-items: center; gap: .4rem; padding: .6rem .8rem; border-bottom: 1px solid var(--line); }
+.browser-bar i { width: .6rem; height: .6rem; border-radius: 50%; background: var(--line); }
+.browser-bar span { margin-left: .8rem; font-size: var(--s-xs); color: var(--ink-soft); }
+.browser .shot { display: block; width: 100%; height: auto; }
+.web-text p { margin: 0 0 1.5rem; font-size: 1.1rem; max-width: 34rem; }
+.web-list { list-style: none; margin: 0 0 2rem; padding: 0; }
+.web-list li { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding-block: .8rem; border-top: 1px solid var(--line); }
+.web-list b { font-family: var(--display); font-weight: 700; font-size: var(--s-xs); letter-spacing: .16em; text-transform: uppercase; color: var(--red); padding-top: .25em; }
+.web-list span { color: var(--ink-soft); }
+@media (max-width: 480px) { .web-list li { grid-template-columns: 1fr; gap: .2rem; } }
+
+/* Réseaux */
+.top { margin-top: 2.5rem; }
+.top ol { list-style: none; margin: .9rem 0 0; padding: 0; }
+.top li { display: flex; justify-content: space-between; gap: .25rem 1.5rem; flex-wrap: wrap; padding-block: .75rem; border-bottom: 1px solid rgba(245, 233, 226, .2); }
+.top b { font-family: var(--display); font-weight: 400; font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); border-top: 1px solid rgba(245, 233, 226, .45); }
+.stat { padding: 1.4rem 1.25rem 1.4rem 0; border-bottom: 1px solid rgba(245, 233, 226, .2); display: grid; gap: .3rem; }
+.stat .n { font-family: var(--display); font-size: clamp(2.3rem, 5vw, 3.3rem); line-height: 1; font-variant-numeric: lining-nums tabular-nums; }
+.stat .l { font-size: var(--s-sm); opacity: .85; }
+.feeds { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 1rem; margin-top: 2.5rem; }
+.feed { border: 1px solid rgba(245, 233, 226, .35); padding: 1.2rem 1.25rem; display: grid; gap: .35rem; text-decoration: none; }
+.feed:hover { background: var(--red-deep); border-color: var(--red-deep); }
+.feed .h { font-family: var(--display); font-size: 1.3rem; }
+.feed .d { font-size: var(--s-sm); font-style: italic; opacity: .8; }
+
+/* Parcours */
+#parcours .label { color: var(--red); }
+.cv { display: grid; gap: clamp(2rem, 5vw, 4rem); }
+@media (min-width: 900px) { .cv { grid-template-columns: 1.4fr 1fr; } }
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding-block: 1rem; border-top: 1px solid var(--line); }
+.timeline .y { font-size: var(--s-sm); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.timeline h3 { font-size: 1.25rem; }
+.timeline p { margin: .2rem 0 0; color: var(--ink-soft); font-size: var(--s-sm); }
+@media (max-width: 480px) { .timeline li, .steps li { grid-template-columns: 1fr; gap: .25rem; } }
+.kit h3 { font-size: 1.25rem; margin-bottom: .75rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+.chips span { font-size: var(--s-sm); border: 1px solid var(--line); padding: .25rem .75rem; }
+
+/* Contact */
+.contact { display: grid; gap: 2rem; }
+.contact h2 { font-size: var(--s-xxl); line-height: 1; }
+.contact-lines { display: grid; gap: .75rem; font-size: 1.15rem; }
+.contact-lines div { display: flex; flex-wrap: wrap; gap: .25rem 1rem; align-items: baseline; }
+.contact-lines .label { width: 8rem; opacity: .8; }
+footer { padding-block: 1.5rem; font-size: var(--s-xs); border-top: 1px solid var(--red-deep); }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero .logo { animation: settle 1.2s cubic-bezier(.2,.7,.2,1) both; }
+  .hero h1, .hero .intro, .hero .cta-row { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+  .hero .intro { animation-delay: .1s; } .hero .cta-row { animation-delay: .2s; }
+  @keyframes rise { from { transform: translateY(14px); opacity: .001; } to { transform: none; opacity: 1; } }
+  @keyframes settle { from { transform: scale(1.03); opacity: .001; } to { transform: none; opacity: 1; } }
+}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top">axel.</a>
+    <nav class="menu" aria-label="Sections">
+      <a href="#site" class="keep">Projet phare</a>
+      <a href="#etude">Affiches</a>
+      <a href="#gammvert">Gamm Vert</a>
+      <a href="#travaux">Travaux</a>
+      <a href="#reseaux">Réseaux</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#contact" class="keep">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero red">
+    <div class="wrap">
+      <img class="logo" src="images/logo.png" alt="axel., logo typographique">
+      <div>
+        <p class="label">Photo · Vidéo · Réseaux sociaux</p>
+        <h1>Axel Pionnier</h1>
+        <p class="intro">Passionné par l'image depuis toujours, je crée des vidéos, des visuels et des affiches depuis plus de cinq ans, de la prise de vue jusqu'à la diffusion. Basé à Avize, j'ai envie de mettre ce savoir-faire au service d'une grande maison de Champagne.</p>
+        <div class="cta-row">
+          <a class="btn" href="#site">Voir mon travail</a>
+          <a class="btn ghost" href="#contact">Me contacter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="block" id="site">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Projet phare · CSGV</p>
+          <h2>csgv.com, le site de la coopérative</h2>
+        </div>
+      </div>
+      <div class="web">
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><i></i><span>csgv.com</span></div>
+          <img class="shot" src="images/csgvsite.jpg" alt="Page d'accueil de csgv.com">
+        </div>
+        <div class="web-text">
+          <p>Le site de la coopérative fondée en 1947, pensé pour deux publics&nbsp;: les vignerons adhérents et le grand public. Il présente l'ensemble des services et des filiales du groupe sous une même identité.</p>
+          <p>Plusieurs mois de travail. Je l'ai conçu de A à Z&nbsp;: la maquette et l'ensemble des contenus (textes, photos, articles, documents). Le développement a été réalisé par l'agence IMPAAKT à partir de ma maquette.</p>
+          <ul class="web-list">
+            <li><b>Services</b><span>Technique et environnement, vigne, personnalisation, matériel et SAV, champagnisation</span></li>
+            <li><b>Filiales</b><span>La Pastorale, Champagne Emballage, O2C, CSGV Transports</span></li>
+            <li><b>Adhérents</b><span>Espace connecté, documentation, actualités, carte des magasins</span></li>
+          </ul>
+          <a class="vid" href="https://www.csgv.com/" target="_blank" rel="noopener"><span class="play-dot">↗</span><span>Visiter csgv.com</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="travaux">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Sélection</p>
+          <h2>Travaux</h2>
+        </div>
+        <div class="filters" role="group" aria-label="Filtrer les travaux">
+          <button type="button" id="f-all" data-f="all" aria-pressed="true">Tout</button>
+          <button type="button" id="f-photo" data-f="photo" aria-pressed="false">Photo</button>
+          <button type="button" id="f-video" data-f="video" aria-pressed="false">Vidéo</button>
+          <button type="button" id="f-social" data-f="social" aria-pressed="false">Réseaux</button>
+        </div>
+      </div>
+
+      <div class="works">
+        <figure class="work wide" data-cat="video">
+          <div class="plate" role="img" aria-label="Emplacement vidéo"><span class="play">FILM</span><span class="what">Film de marque ou de vendanges · 16:9</span></div>
+          <figcaption><span class="t">Titre du film <span class="todo">À remplir</span></span><span class="k">Réalisation, montage</span></figcaption>
+        </figure>
+        <figure class="work" data-cat="photo">
+          <div class="plate" role="img" aria-label="Emplacement photo"><span class="what">Photo produit · 4:5</span></div>
+          <figcaption><span class="t">Série produit</span><span class="k">Nature morte</span></figcaption>
+        </figure>
+        <figure class="work" data-cat="photo">
+          <div class="plate" role="img" aria-label="Emplacement photo"><span class="what">Portrait · 4:5</span></div>
+          <figcaption><span class="t">Portraits</span><span class="k">Reportage</span></figcaption>
+        </figure>
+        <figure class="work third" data-cat="social">
+          <div class="plate" role="img" aria-label="Emplacement reel"><span class="play">REEL</span><span class="what">Reel ou TikTok</span></div>
+          <figcaption><span class="t">Reel</span><span class="k">Instagram</span></figcaption>
+        </figure>
+        <figure class="work third" data-cat="social">
+          <div class="plate" role="img" aria-label="Emplacement carrousel"><span class="what">Carrousel Instagram</span></div>
+          <figcaption><span class="t">Campagne sociale</span><span class="k">Direction artistique</span></figcaption>
+        </figure>
+        <figure class="work third" data-cat="video">
+          <div class="plate" role="img" aria-label="Emplacement vidéo"><span class="play">FILM</span><span class="what">Événement</span></div>
+          <figcaption><span class="t">Événementiel</span><span class="k">Captation</span></figcaption>
+        </figure>
+        <figure class="work wide" data-cat="photo">
+          <div class="plate" role="img" aria-label="Emplacement photo"><span class="what">Paysage, vignoble · 16:9</span></div>
+          <figcaption><span class="t">Terroir</span><span class="k">Paysage</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="etude">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Série d'affiches · CSGV</p>
+          <h2>Les affiches des assemblées générales</h2>
+        </div>
+      </div>
+      <ul class="steps steps-row">
+        <li><b>Brief</b><p>Donner envie aux vignerons adhérents de venir à l'assemblée générale de la coopérative.</p></li>
+        <li><b>Idée</b><p>Détourner des affiches de films cultes avec le vocabulaire champenois&nbsp;: cochelet, muselets, parcelles, Vitis.</p></li>
+        <li><b>Rôle</b><p>Tout, de A à Z&nbsp;: idée, réalisation, montage, direction artistique, impression et mise en place.</p></li>
+        <li><b>Résultats</b><p>Une série de 13 affiches, conçues et installées de bout en bout.</p></li>
+      </ul>
+      <div class="wall">
+        <button type="button" class="poster" id="poster-cochelet"><img src="images/cochelet.jpg" alt="Affiche « Maman, j'ai raté le cochelet », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-muselets"><img src="images/muselets.jpg" alt="Affiche « Le Seigneur des muselets », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-parcelles"><img src="images/parcelles.jpg" alt="Affiche « Chérie, j'ai rétréci les parcelles », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-lahaut"><img src="images/lahaut.jpg" alt="Affiche « Là-haut à Hautvillers », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-vitis"><img src="images/vitis.jpg" alt="Affiche « Bienvenue chez les Vitis », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-captain"><img src="images/captain.jpg" alt="Affiche « Captain Champagne », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-ratatouille"><img src="images/ratatouille.jpg" alt="Affiche « Pâté croûte champenois », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-boursault"><img src="images/boursault.jpg" alt="Affiche « Le Comte de Boursault », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-dents"><img src="images/dents.jpg" alt="Affiche « Les Dents de la vigne », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-camping"><img src="images/camping.jpg" alt="Affiche « En face du camping », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-kaamelott"><img src="images/kaamelott.jpg" alt="Affiche « Kaamelott », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-cepages"><img src="images/cepages.jpg" alt="Affiche « Les 3 Cépages », assemblée générale CSGV" loading="lazy"></button>
+        <button type="button" class="poster" id="poster-oeil"><img src="images/oeil.jpg" alt="Affiche « La coopérative au sang vert », assemblée générale CSGV" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="gammvert">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Opération commerciale · Gamm Vert Épernay</p>
+          <h2>Un jour, un légume</h2>
+        </div>
+      </div>
+      <div class="win">
+        <div class="win-main">
+        <div class="win-figure">
+          <span class="big">3<sup>e</sup></span>
+          <span class="win-cap">place nationale du challenge magasins de la Fête du Potager, sur 191 magasins Gamm Vert participants</span>
+        </div>
+        <div class="win-text">
+          <p>J'anime les opérations commerciales et les réseaux sociaux du Gamm Vert d'Épernay. Pour la Fête du Potager 2026, du 8 au 19 avril, nous avons lancé «&nbsp;Un jour, un légume&nbsp;»&nbsp;: un rendez-vous quotidien en vidéo et un jeu concours pour faire vivre l'opération en magasin et en ligne.</p>
+          <p>Le magasin a terminé sur le podium national, une reconnaissance saluée dans les actualités internes du réseau.</p>
+          <div class="vids">
+            <a class="vid" href="https://www.facebook.com/share/r/1FGhC4cQaB/" target="_blank" rel="noopener"><span class="play-dot">▶</span><span>Voir la vidéo n°1</span></a>
+            <a class="vid" href="https://www.facebook.com/share/r/1CYwxURL15/" target="_blank" rel="noopener"><span class="play-dot">▶</span><span>Voir la vidéo n°2</span></a>
+          </div>
+        </div>
+        </div>
+        <figure class="win-photo">
+          <img src="images/gammvert.jpg" alt="Remise du diplôme Challenge magasin La Fête du Potager 2026 au magasin d'Épernay">
+          <figcaption>Remise du prix, Challenge magasin La Fête du Potager 2026</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <dialog id="viewer" aria-label="Affiche agrandie">
+    <button type="button" id="viewer-close" class="viewer-close">Fermer</button>
+    <img id="viewer-img" alt="">
+  </dialog>
+
+  <section class="block red" id="reseaux">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Réseaux sociaux</p>
+          <h2>En chiffres</h2>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="n">2&nbsp;971</span><span class="l">abonnés LinkedIn sur une page que j'ai créée et développée depuis 2021</span></div>
+        <div class="stat"><span class="n">1&nbsp;000</span><span class="l">abonnés Facebook</span></div>
+        <div class="stat"><span class="n">+599</span><span class="l">nouveaux abonnés Facebook depuis 2024</span></div>
+        <div class="stat"><span class="n">5&nbsp;884</span><span class="l">vues pour mon meilleur reel</span></div>
+      </div>
+      <div class="top">
+        <p class="label">Reels les plus vus · octobre 2026</p>
+        <ol>
+          <li><span>Viti Vini 2026, jour 1&nbsp;: bienvenue au village CSGV</span><b>5&nbsp;884 vues</b></li>
+          <li><span>Viti Vini 2026&nbsp;: le village ferme ses portes</span><b>4&nbsp;875 vues</b></li>
+          <li><span>Joyeux Champagne Day</span><b>4&nbsp;344 vues</b></li>
+        </ol>
+      </div>
+      <div class="feeds">
+        <a class="feed" href="https://www.facebook.com/share/1CrUnZMZ8j/" target="_blank" rel="noopener"><span class="label">Facebook · CSGV</span><span class="h">Page de la coopérative</span><span class="d">Que j'anime ↗</span></a>
+        <a class="feed" href="https://www.linkedin.com/company/csgvappro/" target="_blank" rel="noopener"><span class="label">LinkedIn · CSGV</span><span class="h">Page entreprise</span><span class="d">Que j'anime ↗</span></a>
+        <a class="feed" href="https://www.youtube.com/@societecsgv6333" target="_blank" rel="noopener"><span class="label">YouTube · CSGV</span><span class="h">Société CSGV</span><span class="d">Les vidéos que je réalise ↗</span></a>
+        <a class="feed" href="#reseaux"><span class="label">LinkedIn · Axel</span><span class="h">Mon profil</span><span class="d">Lien à ajouter</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="parcours">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Parcours</p>
+          <h2>Expériences</h2>
+        </div>
+      </div>
+      <div class="cv">
+        <div>
+          <ol class="timeline">
+            <li><span class="y">2021 — auj.</span><div><h3>Chargé de communication · CSGV</h3><p>Coopérative du Syndicat Général des Vignerons, Épernay · CDI. Vidéos promotionnelles et institutionnelles de la prise de vue au montage, affiches, site et intranet, communication print et TV sur 18 magasins, salons et événements. Animation des opérations commerciales et des réseaux du Gamm Vert d'Épernay.</p></div></li>
+            <li><span class="y">2019 — 2021</span><div><h3>Technicien réparateur · WeFix</h3><p>Saint-Quentin · CDI. Réparation électronique, management d'une petite équipe en atelier, conseil client.</p></div></li>
+            <li><span class="y">2017 — 2018</span><div><h3>Community manager · AB Expérience</h3><p>Amiens · alternance. Articles de blog, visuels digitaux, animation des réseaux sociaux.</p></div></li>
+            <li><span class="y">2015 — 2017</span><div><h3>Agent commercial · Régie Radio Régions</h3><p>Lille · CDD. Prospection B2B et vente d'espace pour Virgin Radio.</p></div></li>
+          </ol>
+          <h3 class="sub">Formation</h3>
+          <ol class="timeline">
+            <li><span class="y">2021 — 2023</span><div><h3>Master Communication 360</h3><p>ECS, Reims</p></div></li>
+            <li><span class="y">2017 — 2018</span><div><h3>Licence Créa-Tec', commerce et communication</h3></div></li>
+            <li><span class="y">2015 — 2017</span><div><h3>BTS Négociation et relation client</h3></div></li>
+          </ol>
+        </div>
+        <div class="kit">
+          <h3>Savoir-faire</h3>
+          <div class="chips"><span>Tournage</span><span>Montage vidéo</span><span>Photographie</span><span>Affiches et print</span><span>Réseaux sociaux</span><span>Site web</span><span>Événementiel</span></div>
+          <h3>Outils</h3>
+          <div class="chips"><span>Suite Adobe</span><span>WordPress</span><span>Microsoft 365</span></div>
+          <h3>En dehors</h3>
+          <div class="chips"><span>Vin</span><span>Photo</span><span>Urbex</span><span>Voyage</span><span>Pêche</span><span>Dessin</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block red" id="contact">
+    <div class="wrap contact">
+      <p class="label">Contact</p>
+      <h2>Travaillons ensemble.</h2>
+      <div class="contact-lines">
+        <div><span class="label">E-mail</span><a href="mailto:axel.pionnier@gmail.com">axel.pionnier@gmail.com</a></div>
+        <div><span class="label">Basé à</span><span>Avize, Côte des Blancs</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="red">
+  <div class="wrap"><span>© 2026 axel.</span><span>Photo · Vidéo · Réseaux sociaux</span></div>
+</footer>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.filters button');
+  var works = document.querySelectorAll('.work');
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.getAttribute('data-f');
+      buttons.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      works.forEach(function (w) { w.hidden = !(f === 'all' || w.getAttribute('data-cat') === f); });
+    });
+  });
+  var viewer = document.getElementById('viewer');
+  var vimg = document.getElementById('viewer-img');
+  document.querySelectorAll('.poster').forEach(function (p) {
+    p.addEventListener('click', function () {
+      var img = p.querySelector('img');
+      vimg.src = img.src; vimg.alt = img.alt;
+      if (viewer.showModal) viewer.showModal();
+    });
+  });
+  document.getElementById('viewer-close').addEventListener('click', function () { viewer.close(); });
+  viewer.addEventListener('click', function (e) { if (e.target === viewer) viewer.close(); });
+})();
+</script>
+</body>
+</html>
